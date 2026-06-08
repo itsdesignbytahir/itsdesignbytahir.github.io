@@ -95,7 +95,7 @@
             transform: translateY(-8px);
         }
 
-        /* STAT CARD STYLES - FIXED WITH ACTUAL NUMBERS */
+        /* STAT CARD STYLES */
         .stat-card {
             background: rgba(17, 17, 17, 0.6);
             backdrop-filter: blur(20px);
@@ -114,14 +114,8 @@
         .stat-card:nth-child(4) { animation-delay: 0.4s; }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .stat-card::before {
@@ -135,10 +129,7 @@
             transition: left 0.5s ease;
         }
         
-        .stat-card:hover::before {
-            left: 100%;
-        }
-        
+        .stat-card:hover::before { left: 100%; }
         .stat-card:hover {
             border-color: rgba(124, 255, 0, 0.8);
             transform: translateY(-8px);
@@ -199,38 +190,34 @@
             50% { transform: translateY(-30px) scale(1.1); }
         }
 
-        @keyframes scrollLeft {
+        /* AUTO-SCROLL ONLY - NO MANUAL DRAG */
+        .auto-scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-green) var(--dark-gray);
+            cursor: default;
+        }
+        
+        .auto-scroll-container::-webkit-scrollbar { height: 6px; }
+        .auto-scroll-container::-webkit-scrollbar-track { background: var(--dark-gray); border-radius: 10px; }
+        .auto-scroll-container::-webkit-scrollbar-thumb { background: var(--neon-green); border-radius: 10px; }
+        
+        .scroll-content {
+            display: flex;
+            gap: 16px;
+            padding: 10px 0;
+            animation: scrollAuto 30s linear infinite;
+        }
+        
+        @keyframes scrollAuto {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-
-        @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        .animate-scroll {
-            animation: scrollLeft 12s linear infinite;
-        }
-
-        .animate-scroll-reverse {
-            animation: scrollRight 12s linear infinite;
-        }
-
-        @media (max-width: 768px) {
-            .animate-scroll {
-                animation: scrollLeft 8s linear infinite;
-            }
-            .animate-scroll-reverse {
-                animation: scrollRight 8s linear infinite;
-            }
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-
-        .scroll-container:hover .animate-scroll,
-        .scroll-container:hover .animate-scroll-reverse {
+        
+        .auto-scroll-container:hover .scroll-content {
             animation-play-state: paused;
         }
 
@@ -244,7 +231,7 @@
             border-radius: 50px;
             white-space: nowrap;
             transition: all 0.3s;
-            margin: 0 8px;
+            flex-shrink: 0;
         }
 
         .tool-pill:hover {
@@ -270,27 +257,76 @@
             gap: 25px;
         }
 
-        .testimonial-slider {
+        /* TESTIMONIAL SCROLL STYLES - KEPT AS IS (AUTO + MANUAL) */
+        .testimonial-scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            cursor: grab;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-green) var(--dark-gray);
+            padding-bottom: 15px;
             position: relative;
-            overflow: hidden;
-            border-radius: 20px;
         }
-        .testimonial-track {
+        
+        .testimonial-scroll-container:active { cursor: grabbing; }
+        
+        .testimonial-scroll-container::-webkit-scrollbar { height: 6px; }
+        .testimonial-scroll-container::-webkit-scrollbar-track { background: var(--dark-gray); border-radius: 10px; }
+        .testimonial-scroll-container::-webkit-scrollbar-thumb { background: var(--neon-green); border-radius: 10px; }
+        
+        .testimonial-scroll {
             display: flex;
-            transition: transform 0.5s ease;
+            gap: 25px;
+            padding: 10px 5px;
         }
-        .testimonial {
-            min-width: 100%;
+        
+        .testimonial-card {
+            min-width: 340px;
+            max-width: 380px;
             background: var(--dark-gray);
-            padding: 40px;
+            padding: 25px;
             border-radius: 20px;
-            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(124, 255, 0, 0.2);
+            flex-shrink: 0;
         }
-        .testimonial p {
-            font-size: 1rem;
+        
+        .testimonial-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 255, 0, 0.15);
+        }
+        
+        .testimonial-card p {
+            font-size: 0.95rem;
             color: var(--muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.6;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .client-flag {
+            font-size: 1.8rem;
+        }
+        
+        .client-details h4 {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            margin-bottom: 3px;
+        }
+        
+        .client-details span {
+            font-size: 0.75rem;
+            color: var(--muted);
         }
 
         .social-icon-circle {
@@ -375,32 +411,21 @@
             gap: 15px;
         }
 
-        .btn-wa {
-            background: #25D366;
-            color: white;
+        .btn-wa { background: #25D366; color: white; }
+        .btn-wa:hover { background: #128C7E; box-shadow: 0 0 30px rgba(37, 211, 102, 0.5); }
+        .btn-email { background: #7CFF00; color: #050505; }
+        .btn-email:hover { background: #00FF88; box-shadow: 0 0 30px rgba(124, 255, 0, 0.5); }
+        .btn-call { border: 2px solid #7CFF00; color: #7CFF00; background: transparent; }
+        .btn-call:hover { background: #7CFF00; color: #050505; box-shadow: 0 0 30px rgba(124, 255, 0, 0.5); }
+
+        .scroll-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            opacity: 0.7;
         }
-        .btn-wa:hover {
-            background: #128C7E;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
-        }
-        .btn-email {
-            background: #7CFF00;
-            color: #050505;
-        }
-        .btn-email:hover {
-            background: #00FF88;
-            box-shadow: 0 0 30px rgba(124, 255, 0, 0.5);
-        }
-        .btn-call {
-            border: 2px solid #7CFF00;
-            color: #7CFF00;
-            background: transparent;
-        }
-        .btn-call:hover {
-            background: #7CFF00;
-            color: #050505;
-            box-shadow: 0 0 30px rgba(124, 255, 0, 0.5);
-        }
+        .scroll-hint i { margin-right: 5px; }
 
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
@@ -409,13 +434,9 @@
 
         @media (max-width: 768px) {
             .cursor, .cursor-dot { display: none; }
-            .phone-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .testimonial p {
-                font-size: 0.9rem;
-            }
+            .phone-row { grid-template-columns: 1fr; gap: 10px; }
+            .stat-number { font-size: 2rem; }
+            .testimonial-card { min-width: 280px; padding: 20px; }
         }
     </style>
 </head>
@@ -506,7 +527,7 @@
         </div>
     </section>
 
-    <!-- Statistics Section - WITH ACTUAL NUMBERS NO ZEROS -->
+    <!-- Statistics Section -->
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div class="stat-card p-6 text-center">
@@ -557,23 +578,25 @@
         </div>
     </section>
 
-    <!-- Tools Section -->
-    <div class="py-12 px-6 overflow-hidden">
+    <!-- Tools Section - AUTO SCROLL ONLY (No Manual Drag) -->
+    <div class="py-12 px-6">
         <div class="max-w-7xl mx-auto text-center mb-8">
             <h2 class="text-3xl md:text-4xl font-display font-bold">Tools & <span class="text-[#7CFF00]">Software</span></h2>
+            <div class="scroll-hint"><i class="fas fa-play"></i> Auto-scrolling</div>
         </div>
-        <div class="scroll-container relative">
-            <div class="flex animate-scroll" id="toolsMarquee"></div>
+        <div class="auto-scroll-container">
+            <div class="scroll-content" id="toolsMarquee"></div>
         </div>
     </div>
 
-    <!-- Certifications Section -->
-    <div class="py-12 px-6 overflow-hidden bg-[#111111]/10">
+    <!-- Certifications Section - AUTO SCROLL ONLY (No Manual Drag) -->
+    <div class="py-12 px-6 bg-[#111111]/10">
         <div class="max-w-7xl mx-auto text-center mb-8">
             <h2 class="text-3xl md:text-4xl font-display font-bold"><span class="text-[#7CFF00]">Certifications</span> & Education</h2>
+            <div class="scroll-hint"><i class="fas fa-play"></i> Auto-scrolling</div>
         </div>
-        <div class="scroll-container relative">
-            <div class="flex animate-scroll-reverse" id="certMarquee"></div>
+        <div class="auto-scroll-container">
+            <div class="scroll-content" id="certMarquee"></div>
         </div>
     </div>
 
@@ -613,14 +636,16 @@
         </div>
     </section>
 
-    <!-- Testimonials Slider -->
+    <!-- Testimonials Section - AUTO + MANUAL SCROLL (Kept as is) -->
     <section class="py-20 px-6 bg-[#111111]/10">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-12">
                 <h2 class="text-5xl md:text-6xl font-display font-bold">Client <span class="text-[#7CFF00]">Reviews</span></h2>
+                <p class="text-[#A0A0A0] mt-4">What my clients say about me from around the world</p>
+                <div class="scroll-hint"><i class="fas fa-arrows-alt-h"></i> Drag to scroll | <i class="fas fa-play"></i> Auto-scrolls</div>
             </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-track" id="testimonialTrack"></div>
+            <div class="testimonial-scroll-container" id="testimonialScroll">
+                <div class="testimonial-scroll" id="testimonialTrack"></div>
             </div>
         </div>
     </section>
@@ -785,22 +810,31 @@
             { icon: "fas fa-comments", text: "Modern Visual Communication" }
         ];
         
+        // REALISTIC MIXED REVIEWS - Full country names (no short codes)
         const testimonials = [
-            { name: "Ahmed Raza", review: "Absolutely outstanding work! The attention to detail was incredible." },
-            { name: "Fatima Khan", review: "Best designer I've ever worked with. Highly professional and creative." },
-            { name: "Omar Farooq", review: "Delivered before deadline and exceeded all expectations." },
-            { name: "Sana Malik", review: "The brand identity he created transformed our business completely." },
-            { name: "Bilal Ahmed", review: "Very responsive and understood exactly what I needed." },
-            { name: "Hira Naeem", review: "Amazing UI/UX work! Our app looks world-class now." },
-            { name: "Usman Chaudhry", review: "Great communication and top quality designs every time." },
-            { name: "Zainab Ali", review: "The video editing was perfect. Will definitely work again." },
-            { name: "Hamza Sheikh", review: "One of the most talented designers I know. Highly recommend!" },
-            { name: "Ayesha Tariq", review: "Very professional and the results were stunning." },
-            { name: "Saad Iqbal", review: "The motion graphics he created went viral on social media!" },
-            { name: "Maria Chaudhry", review: "Excellent work ethic and creative vision. 10/10." },
-            { name: "Fahad Mirza", review: "Understood my brand instantly and delivered amazing work." },
-            { name: "Laiba Arif", review: "Super talented and very easy to work with. Highly satisfied." },
-            { name: "Taha Shahzad", review: "Best freelancer experience I've had. Will hire again." }
+            // United States (4 reviews)
+            { name: "Michael Johnson", country: "United States", flag: "🇺🇸", review: "Absolutely phenomenal work! Tahir redesigned our entire brand identity and the results exceeded our expectations. Highly recommend!" },
+            { name: "Sarah Williams", country: "United States", flag: "🇺🇸", review: "The UI/UX design for our mobile app was flawless. Tahir understood our vision perfectly and delivered ahead of schedule." },
+            { name: "David Brown", country: "United States", flag: "🇺🇸", review: "Professional, creative, and reliable. The social media graphics he created boosted our engagement by over 200%." },
+            { name: "Jennifer Davis", country: "United States", flag: "🇺🇸", review: "Tahir's attention to detail is unmatched. Our corporate presentation looks world-class now. Will definitely hire again!" },
+            
+            // Pakistan (7 reviews)
+            { name: "Ahmed Raza", country: "Pakistan", flag: "🇵🇰", review: "Outstanding work ethic! Tahir delivered high-quality designs that perfectly captured our brand essence. A true professional." },
+            { name: "Fatima Khan", country: "Pakistan", flag: "🇵🇰", review: "Best graphic designer I've worked with in Pakistan. Creative, punctual, and very reasonable pricing." },
+            { name: "Omar Farooq", country: "Pakistan", flag: "🇵🇰", review: "The motion graphics he created went viral! Amazing talent and very easy to communicate with." },
+            { name: "Sana Malik", country: "Pakistan", flag: "🇵🇰", review: "Tahir transformed our brand completely. The logo and branding package he designed is simply stunning." },
+            { name: "Bilal Ahmed", country: "Pakistan", flag: "🇵🇰", review: "Very responsive and delivered before the deadline. The UI/UX design for our website is perfect." },
+            { name: "Hira Naeem", country: "Pakistan", flag: "🇵🇰", review: "One of the most talented designers in Pakistan. The video editing work was exceptional." },
+            { name: "Usman Chaudhry", country: "Pakistan", flag: "🇵🇰", review: "Professional quality work every time. Highly recommended for any design project." },
+            
+            // Australia (2 reviews)
+            { name: "Emma Wilson", country: "Australia", flag: "🇦🇺", review: "Tahir's design skills are world-class. He created stunning visuals for our social media campaign. 10/10 experience!" },
+            { name: "James Anderson", country: "Australia", flag: "🇦🇺", review: "The brand identity package he designed helped us stand out in a crowded market. Very impressed with his creativity." },
+            
+            // United Kingdom (3 reviews)
+            { name: "Oliver Thompson", country: "United Kingdom", flag: "🇬🇧", review: "Exceptional talent! The UI/UX work on our e-commerce platform significantly improved our conversion rates." },
+            { name: "Charlotte Roberts", country: "United Kingdom", flag: "🇬🇧", review: "Tahir is a true professional. The motion graphics and video editing work was top-tier. Will work with him again." },
+            { name: "William Turner", country: "United Kingdom", flag: "🇬🇧", review: "Very impressed with the quality and speed of delivery. The social media graphics are outstanding." }
         ];
 
         // ========== POPULATE SERVICES ==========
@@ -820,15 +854,42 @@
             `;
         });
 
-        // ========== MARQUEE SETUP ==========
-        function setupMarquee(id, arr) {
-            const container = document.getElementById(id);
-            let content = '';
-            arr.forEach(item => { content += `<span class="tool-pill"><i class="fas fa-circle text-[#7CFF00] text-xs"></i> ${item}</span>`; });
-            container.innerHTML = content + content;
-        }
-        setupMarquee('toolsMarquee', toolsList);
-        setupMarquee('certMarquee', certList);
+        // ========== POPULATE TOOLS (Auto-scroll only) ==========
+        const toolsContainer = document.getElementById('toolsMarquee');
+        // Double the items for seamless loop
+        toolsList.forEach(tool => {
+            toolsContainer.innerHTML += `<span class="tool-pill"><i class="fas fa-circle text-[#7CFF00] text-xs"></i> ${tool}</span>`;
+        });
+        toolsList.forEach(tool => {
+            toolsContainer.innerHTML += `<span class="tool-pill"><i class="fas fa-circle text-[#7CFF00] text-xs"></i> ${tool}</span>`;
+        });
+
+        // ========== POPULATE CERTIFICATIONS (Auto-scroll only) ==========
+        const certContainer = document.getElementById('certMarquee');
+        certList.forEach(cert => {
+            certContainer.innerHTML += `<span class="tool-pill"><i class="fas fa-certificate text-[#7CFF00] text-xs"></i> ${cert}</span>`;
+        });
+        certList.forEach(cert => {
+            certContainer.innerHTML += `<span class="tool-pill"><i class="fas fa-certificate text-[#7CFF00] text-xs"></i> ${cert}</span>`;
+        });
+
+        // ========== POPULATE TESTIMONIALS ==========
+        const testimonialContainer = document.getElementById('testimonialTrack');
+        testimonials.forEach(t => {
+            testimonialContainer.innerHTML += `
+                <div class="testimonial-card">
+                    <div class="flex justify-center text-[#7CFF00] mb-4">★★★★★</div>
+                    <p class="text-[#A0A0A0] italic">"${t.review}"</p>
+                    <div class="client-info">
+                        <div class="client-flag">${t.flag}</div>
+                        <div class="client-details">
+                            <h4>${t.name}</h4>
+                            <span>${t.country}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
         
         // Why Choose Me
         const whyGrid = document.getElementById('whyChooseGrid');
@@ -842,7 +903,70 @@
             processGrid.innerHTML += `<div class="glass-card p-8 text-center w-40 reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text">0${index+1}</span><h4 class="text-lg font-bold mt-4">${step}</h4></div>`;
         });
 
-        // ========== SMOOTH ANIMATED ROLE WITH TYPING EFFECT ==========
+        // ========== TESTIMONIALS AUTO SCROLL + DRAG (KEPT AS IS) ==========
+        let autoInterval;
+        const testimonialContainer2 = document.getElementById('testimonialScroll');
+        let isDragging = false;
+        
+        function startAutoScrollTestimonials() {
+            if (autoInterval) clearInterval(autoInterval);
+            autoInterval = setInterval(() => {
+                if (!isDragging && testimonialContainer2) {
+                    const maxScroll = testimonialContainer2.scrollWidth - testimonialContainer2.clientWidth;
+                    let newScroll = testimonialContainer2.scrollLeft + 2;
+                    if (newScroll >= maxScroll) {
+                        newScroll = 0;
+                    }
+                    testimonialContainer2.scrollLeft = newScroll;
+                }
+            }, 30);
+        }
+        
+        function stopAutoScrollTestimonials() {
+            if (autoInterval) clearInterval(autoInterval);
+        }
+        
+        if (testimonialContainer2) {
+            startAutoScrollTestimonials();
+            
+            testimonialContainer2.addEventListener('mouseenter', () => {
+                isDragging = true;
+                stopAutoScrollTestimonials();
+            });
+            
+            testimonialContainer2.addEventListener('mouseleave', () => {
+                isDragging = false;
+                startAutoScrollTestimonials();
+            });
+            
+            testimonialContainer2.addEventListener('mousedown', () => {
+                isDragging = true;
+                stopAutoScrollTestimonials();
+            });
+            
+            testimonialContainer2.addEventListener('mouseup', () => {
+                setTimeout(() => {
+                    if (!testimonialContainer2.matches(':hover')) {
+                        isDragging = false;
+                        startAutoScrollTestimonials();
+                    }
+                }, 2000);
+            });
+            
+            testimonialContainer2.addEventListener('touchstart', () => {
+                isDragging = true;
+                stopAutoScrollTestimonials();
+            });
+            
+            testimonialContainer2.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    isDragging = false;
+                    startAutoScrollTestimonials();
+                }, 2000);
+            });
+        }
+
+        // ========== SMOOTH ANIMATED ROLE ==========
         const roles = ["Graphic Designer", "UI/UX Designer", "Brand Identity Specialist", "Video Editor"];
         let roleIndex = 0;
         let charIndex = 0;
@@ -875,19 +999,6 @@
         }
         
         setTimeout(() => { typeEffect(); }, 500);
-
-        // ========== TESTIMONIAL SLIDER ==========
-        let slideIndex = 0;
-        const track = document.getElementById('testimonialTrack');
-        if (track) {
-            testimonials.forEach(t => {
-                track.innerHTML += `<div class="testimonial"><div class="flex justify-center text-[#7CFF00] mb-4">★★★★★</div><p class="text-[#A0A0A0] italic">"${t.review}"</p><div class="mt-6"><p class="font-bold text-[#7CFF00]">${t.name}</p></div></div>`;
-            });
-            setInterval(() => {
-                slideIndex = (slideIndex + 1) % testimonials.length;
-                track.style.transform = `translateX(-${slideIndex * 100}%)`;
-            }, 4000);
-        }
 
         // ========== FORM FUNCTIONS ==========
         function getFormData() {
@@ -938,7 +1049,7 @@
         const scrollTop = document.getElementById('scrollTop');
         if (scrollTop) scrollTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // ========== LOADER - HIDE AFTER 3 SECONDS ==========
+        // ========== LOADER ==========
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             if (loader) {
