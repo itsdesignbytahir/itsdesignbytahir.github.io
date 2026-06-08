@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Muhammad Tahir | Graphic Designer | UI UX Designer | Video Editor</title>
     <meta name="description" content="Professional Graphic Designer, UI UX Designer, Brand Identity Specialist and Video Editor helping businesses build impactful digital experiences.">
     <meta name="keywords" content="Graphic Designer Pakistan, UI UX Designer, Video Editor, Brand Identity Designer, Social Media Designer, Portfolio Website">
@@ -56,31 +56,30 @@
             overflow-x: hidden;
         }
 
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--neon-green);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 20px rgba(124, 255, 0, 0.5);
-            mix-blend-mode: difference;
+        @media (min-width: 768px) {
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--neon-green);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                box-shadow: 0 0 20px rgba(124, 255, 0, 0.5);
+                mix-blend-mode: difference;
+            }
+            .cursor-dot {
+                width: 6px;
+                height: 6px;
+                background: var(--neon-green);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 10000;
+                box-shadow: 0 0 15px var(--neon-green);
+            }
         }
 
-        .cursor-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--neon-green);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            box-shadow: 0 0 15px var(--neon-green);
-        }
-
-        /* Glassmorphism */
         .glass-card {
             background: rgba(17, 17, 17, 0.6);
             backdrop-filter: blur(20px);
@@ -96,16 +95,76 @@
             transform: translateY(-8px);
         }
 
+        /* STAT CARD STYLES - FIXED WITH ACTUAL NUMBERS */
+        .stat-card {
+            background: rgba(17, 17, 17, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 255, 0, 0.2);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 255, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            border-color: rgba(124, 255, 0, 0.8);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(124, 255, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7CFF00, #00FF88);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(124, 255, 0, 0.3); }
+            50% { text-shadow: 0 0 40px rgba(124, 255, 0, 0.6); }
+        }
+
         .glow-text {
             text-shadow: 0 0 40px rgba(124, 255, 0, 0.6), 0 0 80px rgba(124, 255, 0, 0.3);
         }
 
-        .neon-border {
-            border: 1px solid rgba(124, 255, 0, 0.5);
-            box-shadow: 0 0 25px rgba(124, 255, 0, 0.25), inset 0 0 25px rgba(124, 255, 0, 0.05);
-        }
-
-        /* Portrait Container */
         .portrait-container {
             position: relative;
             border-radius: 50%;
@@ -126,22 +185,20 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Floating Shapes */
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            background: rgba(124, 255, 0, 0.08);
-            filter: blur(80px);
+            background: rgba(124, 255, 0, 0.06);
+            filter: blur(60px);
             animation: float 8s ease-in-out infinite;
             pointer-events: none;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-40px) scale(1.1); }
+            50% { transform: translateY(-30px) scale(1.1); }
         }
 
-        /* Marquee Animations - FASTER */
         @keyframes scrollLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -153,11 +210,23 @@
         }
 
         .animate-scroll {
-            animation: scrollLeft 15s linear infinite;
+            animation: scrollLeft 12s linear infinite;
         }
 
         .animate-scroll-reverse {
-            animation: scrollRight 15s linear infinite;
+            animation: scrollRight 12s linear infinite;
+        }
+
+        @media (max-width: 768px) {
+            .animate-scroll {
+                animation: scrollLeft 8s linear infinite;
+            }
+            .animate-scroll-reverse {
+                animation: scrollRight 8s linear infinite;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
         }
 
         .scroll-container:hover .animate-scroll,
@@ -184,11 +253,10 @@
             background: rgba(124, 255, 0, 0.1);
         }
 
-        /* Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .reveal.visible {
@@ -196,51 +264,12 @@
             transform: translateY(0);
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 25px;
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 5, 5, 0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: var(--dark-gray);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            border: 1px solid var(--neon-green);
-        }
-        .modal-content a {
-            display: block;
-            color: var(--neon-green);
-            text-decoration: none;
-            padding: 15px;
-            margin: 10px 0;
-            background: rgba(124, 255, 0, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-        .modal-content a:hover {
-            background: var(--neon-green);
-            color: var(--deep-black);
-        }
-
-        /* Testimonial Slider */
         .testimonial-slider {
             position: relative;
             overflow: hidden;
@@ -248,7 +277,7 @@
         }
         .testimonial-track {
             display: flex;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
         .testimonial {
             min-width: 100%;
@@ -258,13 +287,12 @@
             text-align: center;
         }
         .testimonial p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--muted);
             margin-bottom: 20px;
             line-height: 1.6;
         }
 
-        /* Social Icons */
         .social-icon-circle {
             width: 55px;
             height: 55px;
@@ -286,7 +314,6 @@
             color: var(--neon-green);
         }
 
-        /* Floating Buttons */
         .float-wa {
             position: fixed;
             bottom: 80px;
@@ -306,6 +333,7 @@
             transition: transform 0.3s;
         }
         .float-wa:hover { transform: scale(1.1); }
+        
         .scroll-top {
             position: fixed;
             bottom: 20px;
@@ -325,13 +353,6 @@
         }
         .scroll-top:hover { transform: translateY(-3px); }
 
-        /* Magnetic Button */
-        .magnetic-btn {
-            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-        }
-
-        /* Form Select Styling */
         .form-select, .form-input {
             background: transparent;
             border-bottom: 1px solid #111111;
@@ -348,14 +369,12 @@
             outline: none;
         }
         
-        /* Phone row */
         .phone-row {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 15px;
         }
 
-        /* Button Colors */
         .btn-wa {
             background: #25D366;
             color: white;
@@ -394,6 +413,9 @@
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
+            .testimonial p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -403,21 +425,23 @@
     <div class="cursor-dot" id="cursorDot"></div>
 
     <!-- Loader -->
-    <div id="loader" style="position:fixed;inset:0;background:#050505;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s;">
-        <div style="font-size:4rem;font-weight:900;color:#7CFF00;font-family:'Space Grotesk',sans-serif;text-shadow:0 0 40px #7CFF00;animation:pulse 1.5s infinite;">MT.</div>
+    <div id="loader" style="position:fixed;inset:0;background:#050505;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.5s;pointer-events:none;">
+        <div style="font-size:2rem; font-weight:900; color:#7CFF00; font-family:'Space Grotesk',sans-serif; text-shadow:0 0 40px #7CFF00; animation:pulse 1s infinite; text-align:center; padding:20px;">
+            Design By<br>Muhammad Tahir
+        </div>
     </div>
 
     <style>
         @keyframes pulse {
             0%,100%{opacity:1;transform:scale(1)}
-            50%{opacity:0.6;transform:scale(1.15)}
+            50%{opacity:0.5;transform:scale(1.05)}
         }
     </style>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-display font-bold text-[#7CFF00] glow-text">MT.</a>
+            <a href="#" class="text-2xl font-display font-bold text-[#7CFF00] glow-text">DMT</a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-[#FFFFFF]/70">
                 <a href="#about" class="hover:text-[#7CFF00] transition">About</a>
                 <a href="#services" class="hover:text-[#7CFF00] transition">Services</a>
@@ -432,28 +456,33 @@
 
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
-        <div class="floating-shape w-[400px] h-[400px] top-20 left-10" style="animation-delay:0s;"></div>
-        <div class="floating-shape w-[300px] h-[300px] bottom-20 right-10" style="animation-delay:4s;"></div>
-        <div class="floating-shape w-[200px] h-[200px] top-1/2 left-1/2" style="animation-delay:2s;"></div>
+        <div class="floating-shape w-[300px] h-[300px] top-20 left-10" style="animation-delay:0s;"></div>
+        <div class="floating-shape w-[200px] h-[200px] bottom-20 right-10" style="animation-delay:4s;"></div>
 
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
             <div class="text-center lg:text-left flex-1">
                 <div class="reveal">
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-none tracking-tight">
                         Muhammad<br><span class="text-[#7CFF00] glow-text">Tahir</span>
                     </h1>
                 </div>
-                <div class="reveal" style="transition-delay:0.2s;">
-                    <p class="text-xl md:text-2xl text-[#A0A0A0] mt-6 font-light" id="animatedRole">
-                        Graphic Designer
-                    </p>
+                
+                <div class="reveal mt-6" style="transition-delay:0.2s;">
+                    <div class="text-xl md:text-2xl text-[#A0A0A0] font-light">
+                        I'm a 
+                        <span class="text-[#7CFF00] font-semibold relative">
+                            <span id="animatedRole" class="inline-block min-w-[200px]"></span>
+                            <span class="cursor-blink ml-1 text-[#7CFF00]">|</span>
+                        </span>
+                    </div>
                 </div>
+                
                 <div class="reveal" style="transition-delay:0.4s;">
                     <p class="text-[#7CFF00]/80 mt-4 text-lg italic">
                         Designing Modern Digital Experiences That Elevate Brands
                     </p>
                 </div>
-                <div class="reveal flex flex-wrap gap-4 mt-10 justify-center lg:justify-start" style="transition-delay:0.6s;">
+                <div class="reveal flex flex-wrap gap-4 mt-8 justify-center lg:justify-start" style="transition-delay:0.6s;">
                     <a href="#contact" class="magnetic-btn px-8 py-3 bg-[#7CFF00] text-[#050505] rounded-full font-semibold hover:shadow-[0_0_40px_rgba(124,255,0,0.7)] transition-all">
                         Hire Me
                     </a>
@@ -462,13 +491,13 @@
                     </a>
                 </div>
                 <div class="reveal mt-6" style="transition-delay:0.8s;">
-                    <p class="text-[#7CFF00] text-sm">✨ Trusted by 35+ happy clients worldwide</p>
+                    <p class="text-[#7CFF00] text-sm">✨ Trusted by 50+ happy clients worldwide</p>
                 </div>
             </div>
 
             <div class="reveal flex-1 flex justify-center" style="transition-delay:0.3s;">
                 <div class="w-64 h-64 lg:w-96 lg:h-96 portrait-container">
-                    <img src="https://i.ibb.co/Z6G3YbpB/Gemini-Generated-Image-3pjxjw3pjxjw3pjx.png" alt="Muhammad Tahir" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/111111/7CFF00?text=MT'"/>
+                    <img src="https://i.ibb.co/Z6G3YbpB/Gemini-Generated-Image-3pjxjw3pjxjw3pjx.png" alt="Muhammad Tahir" class="w-full h-full object-cover" loading="eager" onerror="this.src='https://placehold.co/600x600/111111/7CFF00?text=MT'"/>
                 </div>
             </div>
         </div>
@@ -477,13 +506,29 @@
         </div>
     </section>
 
-    <!-- Statistics -->
+    <!-- Statistics Section - WITH ACTUAL NUMBERS NO ZEROS -->
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat1">0</span><p class="text-[#A0A0A0] mt-2">Years Experience</p></div>
-            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat2">0</span><p class="text-[#A0A0A0] mt-2">Projects Completed</p></div>
-            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat3">0</span><p class="text-[#A0A0A0] mt-2">Happy Clients</p></div>
-            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat4">0</span><p class="text-[#A0A0A0] mt-2">Brands Worked With</p></div>
+            <div class="stat-card p-6 text-center">
+                <div class="stat-number">2+</div>
+                <p class="text-[#A0A0A0] mt-2 font-medium">Years Experience</p>
+                <div class="w-12 h-0.5 bg-[#7CFF00] mx-auto mt-3 opacity-50"></div>
+            </div>
+            <div class="stat-card p-6 text-center">
+                <div class="stat-number">90+</div>
+                <p class="text-[#A0A0A0] mt-2 font-medium">Projects Completed</p>
+                <div class="w-12 h-0.5 bg-[#7CFF00] mx-auto mt-3 opacity-50"></div>
+            </div>
+            <div class="stat-card p-6 text-center">
+                <div class="stat-number">50+</div>
+                <p class="text-[#A0A0A0] mt-2 font-medium">Happy Clients</p>
+                <div class="w-12 h-0.5 bg-[#7CFF00] mx-auto mt-3 opacity-50"></div>
+            </div>
+            <div class="stat-card p-6 text-center">
+                <div class="stat-number">14+</div>
+                <p class="text-[#A0A0A0] mt-2 font-medium">Brands Worked With</p>
+                <div class="w-12 h-0.5 bg-[#7CFF00] mx-auto mt-3 opacity-50"></div>
+            </div>
         </div>
     </div>
 
@@ -495,7 +540,7 @@
             </div>
             <div class="reveal">
                 <p class="text-[#A0A0A0] leading-relaxed text-base md:text-lg">
-                    Hi, I'm Muhammad Tahir, a multidisciplinary creative professional specializing as a Graphic Designer, UI/UX Designer, Brand Identity Specialist, and Video Editor. With over 1.5 years of industry experience, I have partnered with dynamic organizations like One Atom Solutions, Clan Group, Xpertsones, and XpertDigi to craft functional and visually striking digital experiences. My hands-on expertise is backed by a solid academic foundation, including a BS in Visual Communication from the University of Management and Technology (UMT), specialized 6-month diplomas in both UI/UX and Graphic Design from PNY, and a 2-month Video Editing certification from NAVTTC. Whether I am building intuitive user interfaces, shaping brand identities, or editing impactful video content, my goal is always to translate complex ideas into seamless, modern designs that help brands stand out.
+                    Hi, I'm Muhammad Tahir, a multidisciplinary creative professional specializing as a Graphic Designer, UI/UX Designer, Brand Identity Specialist, and Video Editor. With over 2 years of industry experience, I have partnered with dynamic organizations like One Atom Solutions, Clan Group, Xpertsones, and XpertDigi to craft functional and visually striking digital experiences. My hands-on expertise is backed by a solid academic foundation, including a BS in Visual Communication from the University of Management and Technology (UMT), specialized 6-month diplomas in both UI/UX and Graphic Design from PNY, and a 2-month Video Editing certification from NAVTTC.
                 </p>
             </div>
         </div>
@@ -532,7 +577,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Section - NO FILTER BUTTONS -->
+    <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-12">
@@ -604,7 +649,7 @@
                 <p class="text-[#7CFF00] mt-4"><i class="fas fa-envelope"></i> itsdesignbytahir@gmail.com</p>
             </div>
             
-            <form id="contactForm" class="reveal space-y-6" onsubmit="return handleFormSubmit(event)">
+            <form id="contactForm" class="reveal space-y-6" onsubmit="return false">
                 <div class="grid md:grid-cols-2 gap-6">
                     <input type="text" id="name" placeholder="Your Full Name" required class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
                     <input type="email" id="email" placeholder="Email Address" required class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
@@ -649,7 +694,7 @@
                     <input type="text" id="budget" placeholder="Budget Amount" class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
                 </div>
                 
-                <textarea id="message" rows="5" placeholder="Tell me about your project..." class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition resize-none"></textarea>
+                <textarea id="message" rows="4" placeholder="Tell me about your project..." class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition resize-none"></textarea>
                 
                 <div class="flex flex-wrap gap-4 justify-center pt-6">
                     <button type="button" onclick="sendViaWhatsApp()" class="px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 btn-wa">
@@ -668,7 +713,7 @@
 
     <!-- Footer -->
     <footer class="py-10 border-t border-[#111111] text-center">
-        <a href="#" class="text-3xl font-display font-bold text-[#7CFF00] glow-text mb-4 inline-block">MT.</a>
+        <a href="#" class="text-3xl font-display font-bold text-[#7CFF00] glow-text mb-4 inline-block">DMT</a>
         <div class="flex justify-center gap-6 my-6">
             <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-behance"></i></a>
             <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-instagram"></i></a>
@@ -685,18 +730,18 @@
     <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
 
     <!-- Call Modal -->
-    <div id="callModal" class="modal">
-        <div class="modal-content">
+    <div id="callModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(5,5,5,0.95);z-index:2000;justify-content:center;align-items:center;">
+        <div class="modal-content" style="background:#111111;padding:40px;border-radius:20px;text-align:center;max-width:400px;width:90%;border:1px solid #7CFF00;">
             <h3 class="text-[#7CFF00] mb-4">Select a Number</h3>
-            <a href="tel:+923071533354">📱 +92 307 1533354</a>
-            <a href="tel:+923156611794">📱 +92 315 6611794</a>
-            <a href="tel:+923484894475">📱 +92 348 4894475</a>
-            <button id="closeModal" class="mt-4 px-6 py-2 border border-[#7CFF00] text-[#7CFF00] rounded-full hover:bg-[#7CFF00] hover:text-[#050505] transition-all">Close</button>
+            <a href="tel:+923071533354" style="display:block;color:#7CFF00;text-decoration:none;padding:15px;margin:10px 0;background:rgba(124,255,0,0.1);border-radius:10px;">📱 +92 307 1533354</a>
+            <a href="tel:+923156611794" style="display:block;color:#7CFF00;text-decoration:none;padding:15px;margin:10px 0;background:rgba(124,255,0,0.1);border-radius:10px;">📱 +92 315 6611794</a>
+            <a href="tel:+923484894475" style="display:block;color:#7CFF00;text-decoration:none;padding:15px;margin:10px 0;background:rgba(124,255,0,0.1);border-radius:10px;">📱 +92 348 4894475</a>
+            <button id="closeModal" class="mt-4 px-6 py-2 border border-[#7CFF00] text-[#7CFF00] rounded-full hover:bg-[#7CFF00] hover:text-[#050505] transition-all" style="cursor:pointer;">Close</button>
         </div>
     </div>
 
     <script>
-        // ========== FEATURED SERVICES WITH ICONS ==========
+        // ========== DATA ==========
         const featuredServices = [
             { name: "Graphic Designing", icon: "fas fa-paint-brush" },
             { name: "Brand Identity", icon: "fas fa-fingerprint" },
@@ -712,7 +757,6 @@
             { name: "Logo Animations", icon: "fas fa-crown" }
         ];
         
-        // ========== FEATURED PROJECTS - MATCHING SERVICES ==========
         const featuredProjects = [
             { title: "Creative Brand Identity", service: "Brand Identity", icon: "🎨" },
             { title: "Social Media Campaign 2025", service: "Social Media Marketing", icon: "📱" },
@@ -729,7 +773,7 @@
         ];
         
         const toolsList = ["Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro", "Adobe After Effects", "Adobe InDesign", "Adobe XD", "Figma", "CapCut", "CorelDraw", "ChatGPT", "Gemini", "Leonardo AI", "VEO 3", "Meta Business Suite", "Facebook", "Instagram"];
-        const certList = ["NAVTTC", "PNY Trainings", "Google", "Meta", "Coursera", "Udemy", "Upwork", "Fiverr"];
+        const certList = ["NAVTTC", "PNY Trainings", "Google", "Meta", "Coursera", "Udemy", "Upwork", "Fiverr", "UMT (BS Visual Communication)"];
         const processSteps = ["Discovery", "Research", "Strategy", "Design", "Revision", "Delivery"];
         
         const whyItems = [
@@ -765,7 +809,7 @@
             servicesGrid.innerHTML += `<div class="glass-card p-6 text-center reveal"><i class="${service.icon} text-4xl text-[#7CFF00] mb-4 block"></i><h4 class="font-semibold text-lg">${service.name}</h4></div>`;
         });
 
-        // ========== POPULATE PORTFOLIO (NO FILTERS) ==========
+        // ========== POPULATE PORTFOLIO ==========
         const portfolioGrid = document.getElementById('portfolioGrid');
         featuredProjects.forEach(project => {
             portfolioGrid.innerHTML += `
@@ -776,7 +820,7 @@
             `;
         });
 
-        // ========== MARQUEE ==========
+        // ========== MARQUEE SETUP ==========
         function setupMarquee(id, arr) {
             const container = document.getElementById(id);
             let content = '';
@@ -798,110 +842,123 @@
             processGrid.innerHTML += `<div class="glass-card p-8 text-center w-40 reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text">0${index+1}</span><h4 class="text-lg font-bold mt-4">${step}</h4></div>`;
         });
 
-        // ========== STATS COUNTER ==========
-        function animateCounter(el, target) {
-            let count = 0;
-            let interval = setInterval(() => {
-                if (count >= target) clearInterval(interval);
-                else { count++; el.innerText = count; }
-            }, 40);
+        // ========== SMOOTH ANIMATED ROLE WITH TYPING EFFECT ==========
+        const roles = ["Graphic Designer", "UI/UX Designer", "Brand Identity Specialist", "Video Editor"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const roleElement = document.getElementById('animatedRole');
+        
+        function typeEffect() {
+            if (!roleElement) return;
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                roleElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeEffect, 500);
+                    return;
+                }
+                setTimeout(typeEffect, 50);
+            } else {
+                roleElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                    return;
+                }
+                setTimeout(typeEffect, 80);
+            }
         }
-        setTimeout(() => {
-            animateCounter(document.getElementById('stat1'), 2);
-            animateCounter(document.getElementById('stat2'), 50);
-            animateCounter(document.getElementById('stat3'), 35);
-            animateCounter(document.getElementById('stat4'), 4);
-        }, 500);
+        
+        setTimeout(() => { typeEffect(); }, 500);
 
         // ========== TESTIMONIAL SLIDER ==========
         let slideIndex = 0;
         const track = document.getElementById('testimonialTrack');
-        testimonials.forEach(t => {
-            track.innerHTML += `<div class="testimonial"><div class="flex justify-center text-[#7CFF00] mb-4">★★★★★</div><p class="text-[#A0A0A0] italic">"${t.review}"</p><div class="mt-6"><p class="font-bold text-[#7CFF00]">${t.name}</p></div></div>`;
-        });
-        setInterval(() => {
-            slideIndex = (slideIndex + 1) % testimonials.length;
-            track.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }, 4000);
-
-        // ========== ANIMATED ROLE TEXT ==========
-        const roles = ["Graphic Designer", "UI/UX Designer", "Brand Identity Specialist", "Video Editor"];
-        let roleIndex = 0;
-        setInterval(() => {
-            roleIndex = (roleIndex + 1) % roles.length;
-            const roleEl = document.getElementById('animatedRole');
-            roleEl.style.opacity = '0';
-            setTimeout(() => {
-                roleEl.innerText = roles[roleIndex];
-                roleEl.style.opacity = '1';
-            }, 200);
-        }, 2200);
+        if (track) {
+            testimonials.forEach(t => {
+                track.innerHTML += `<div class="testimonial"><div class="flex justify-center text-[#7CFF00] mb-4">★★★★★</div><p class="text-[#A0A0A0] italic">"${t.review}"</p><div class="mt-6"><p class="font-bold text-[#7CFF00]">${t.name}</p></div></div>`;
+            });
+            setInterval(() => {
+                slideIndex = (slideIndex + 1) % testimonials.length;
+                track.style.transform = `translateX(-${slideIndex * 100}%)`;
+            }, 4000);
+        }
 
         // ========== FORM FUNCTIONS ==========
         function getFormData() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const countryCode = document.getElementById('countryCode').value;
-            const phone = document.getElementById('phone').value.trim();
-            const service = document.getElementById('serviceSelect').value;
-            const currency = document.getElementById('currency').value;
-            const budget = document.getElementById('budget').value.trim();
-            const message = document.getElementById('message').value.trim();
-            return { name, email, countryCode, phone, service, currency, budget, message };
+            return {
+                name: document.getElementById('name')?.value.trim() || '',
+                email: document.getElementById('email')?.value.trim() || '',
+                countryCode: document.getElementById('countryCode')?.value || '+92',
+                phone: document.getElementById('phone')?.value.trim() || '',
+                service: document.getElementById('serviceSelect')?.value || 'Not specified',
+                currency: document.getElementById('currency')?.value || 'USD',
+                budget: document.getElementById('budget')?.value.trim() || 'Not specified',
+                message: document.getElementById('message')?.value.trim() || 'No message'
+            };
         }
         
-        function sendViaWhatsApp() {
+        window.sendViaWhatsApp = function() {
             const data = getFormData();
             if (!data.name || !data.email || !data.phone) {
                 alert("Please fill in Name, Email, and Phone Number");
                 return;
             }
-            const text = `*NEW PROJECT INQUIRY*%0A%0A👤 *Name:* ${data.name}%0A📧 *Email:* ${data.email}%0A📞 *Phone:* ${data.countryCode} ${data.phone}%0A🛠️ *Service:* ${data.service || 'Not specified'}%0A💰 *Budget:* ${data.currency || 'USD'} ${data.budget || 'Not specified'}%0A💬 *Message:* ${data.message || 'No message'}`;
+            const text = `*NEW PROJECT INQUIRY*%0A%0A👤 *Name:* ${data.name}%0A📧 *Email:* ${data.email}%0A📞 *Phone:* ${data.countryCode} ${data.phone}%0A🛠️ *Service:* ${data.service}%0A💰 *Budget:* ${data.currency} ${data.budget}%0A💬 *Message:* ${data.message}`;
             window.open(`https://wa.me/923071533354?text=${text}`, '_blank');
         }
         
-        function sendViaEmail() {
+        window.sendViaEmail = function() {
             const data = getFormData();
             if (!data.name || !data.email || !data.phone) {
                 alert("Please fill in Name, Email, and Phone Number");
                 return;
             }
             const subject = `Project Inquiry from ${data.name}`;
-            const body = `Name: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.countryCode} ${data.phone}%0AService: ${data.service || 'Not specified'}%0ABudget: ${data.currency || 'USD'} ${data.budget || 'Not specified'}%0AMessage: ${data.message || 'No message'}`;
+            const body = `Name: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.countryCode} ${data.phone}%0AService: ${data.service}%0ABudget: ${data.currency} ${data.budget}%0AMessage: ${data.message}`;
             window.location.href = `mailto:itsdesignbytahir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
         
-        function showCallModal() {
+        window.showCallModal = function() {
             document.getElementById('callModal').style.display = 'flex';
         }
-        
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            return false;
-        }
-        
+
         // ========== MODAL ==========
         const modal = document.getElementById('callModal');
-        document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+        const closeModal = document.getElementById('closeModal');
+        if (closeModal) closeModal.onclick = () => modal.style.display = 'none';
         window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
         // ========== SCROLL TO TOP ==========
-        document.getElementById('scrollTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        const scrollTop = document.getElementById('scrollTop');
+        if (scrollTop) scrollTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // ========== LOADER ==========
+        // ========== LOADER - HIDE AFTER 3 SECONDS ==========
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
-            setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 800); }, 500);
+            if (loader) {
+                setTimeout(() => { 
+                    loader.style.opacity = '0'; 
+                    setTimeout(() => loader.style.display = 'none', 500); 
+                }, 3000);
+            }
         });
 
         // ========== CUSTOM CURSOR ==========
-        const cursor = document.getElementById('cursor');
-        const cursorDot = document.getElementById('cursorDot');
         if (window.innerWidth > 768) {
-            document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.3 });
-                gsap.to(cursorDot, { x: e.clientX - 3, y: e.clientY - 3, duration: 0.1 });
-            });
+            const cursor = document.getElementById('cursor');
+            const cursorDot = document.getElementById('cursorDot');
+            if (cursor && cursorDot) {
+                document.addEventListener('mousemove', (e) => {
+                    gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.3 });
+                    gsap.to(cursorDot, { x: e.clientX - 3, y: e.clientY - 3, duration: 0.1 });
+                });
+            }
         }
 
         // ========== SCROLL REVEAL ==========
