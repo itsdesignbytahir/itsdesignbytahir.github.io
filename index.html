@@ -3,35 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Tahir | Creative Designer</title>
+    <title>Muhammad Tahir | Graphic Designer | UI UX Designer | Video Editor</title>
+    <meta name="description" content="Professional Graphic Designer, UI UX Designer, Brand Identity Specialist and Video Editor helping businesses build impactful digital experiences.">
+    <meta name="keywords" content="Graphic Designer Pakistan, UI UX Designer, Video Editor, Brand Identity Designer, Social Media Designer, Portfolio Website">
+    <meta name="author" content="Muhammad Tahir">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'deep-black': '#0B0B0B',
-                        'neon-green': '#7DFA2A',
-                        'dark-gray': '#2A2A2A',
-                        'off-white': '#F5F5F5',
+                        'deep-black': '#050505',
+                        'neon-green': '#7CFF00',
+                        'neon-secondary': '#00FF88',
+                        'dark-gray': '#111111',
+                        'off-white': '#FFFFFF',
+                        'muted': '#A0A0A0',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif'],
@@ -44,24 +39,21 @@
 
     <style>
         :root {
-            --deep-black: #0B0B0B;
-            --neon-green: #7DFA2A;
-            --dark-gray: #2A2A2A;
-            --off-white: #F5F5F5;
+            --deep-black: #050505;
+            --neon-green: #7CFF00;
+            --neon-secondary: #00FF88;
+            --dark-gray: #111111;
+            --off-white: #FFFFFF;
+            --muted: #A0A0A0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--deep-black);
             color: var(--off-white);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            cursor: default;
         }
 
         /* Custom Cursor */
@@ -73,8 +65,7 @@
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease;
-            box-shadow: 0 0 20px rgba(125, 250, 42, 0.5);
+            box-shadow: 0 0 20px rgba(124, 255, 0, 0.5);
             mix-blend-mode: difference;
         }
 
@@ -91,70 +82,55 @@
 
         /* Glassmorphism */
         .glass-card {
-            background: rgba(42, 42, 42, 0.4);
+            background: rgba(17, 17, 17, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(125, 250, 42, 0.2);
+            border: 1px solid rgba(124, 255, 0, 0.2);
             border-radius: 24px;
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(125, 250, 42, 0.6);
-            box-shadow: 0 20px 60px rgba(125, 250, 42, 0.15);
+            border-color: rgba(124, 255, 0, 0.6);
+            box-shadow: 0 20px 60px rgba(124, 255, 0, 0.15);
             transform: translateY(-8px);
         }
 
-        /* Neon Glow Text */
         .glow-text {
-            text-shadow: 0 0 40px rgba(125, 250, 42, 0.6), 0 0 80px rgba(125, 250, 42, 0.3);
+            text-shadow: 0 0 40px rgba(124, 255, 0, 0.6), 0 0 80px rgba(124, 255, 0, 0.3);
         }
 
-        /* Portrait Glow */
+        .neon-border {
+            border: 1px solid rgba(124, 255, 0, 0.5);
+            box-shadow: 0 0 25px rgba(124, 255, 0, 0.25), inset 0 0 25px rgba(124, 255, 0, 0.05);
+        }
+
+        /* Portrait Container */
         .portrait-container {
             position: relative;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 0 80px rgba(125, 250, 42, 0.4), 0 0 150px rgba(125, 250, 42, 0.2);
+            box-shadow: 0 0 80px rgba(124, 255, 0, 0.4), 0 0 150px rgba(124, 255, 0, 0.2);
         }
-
         .portrait-container::before {
             content: '';
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            background: linear-gradient(45deg, var(--neon-green), transparent, var(--neon-green));
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-secondary), var(--neon-green));
             z-index: -1;
             animation: rotateGlow 4s linear infinite;
         }
-
         @keyframes rotateGlow {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Neon Border */
-        .neon-border {
-            border: 1px solid rgba(125, 250, 42, 0.5);
-            box-shadow: 0 0 25px rgba(125, 250, 42, 0.25), inset 0 0 25px rgba(125, 250, 42, 0.05);
-        }
-
-        /* Magnetic Button */
-        .magnetic-btn {
-            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-        }
-
-        /* Floating shapes */
+        /* Floating Shapes */
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            background: rgba(125, 250, 42, 0.08);
+            background: rgba(124, 255, 0, 0.08);
             filter: blur(80px);
             animation: float 8s ease-in-out infinite;
             pointer-events: none;
@@ -165,7 +141,50 @@
             50% { transform: translateY(-40px) scale(1.1); }
         }
 
-        /* Reveal animations */
+        /* Marquee Animations - FASTER */
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .animate-scroll {
+            animation: scrollLeft 15s linear infinite;
+        }
+
+        .animate-scroll-reverse {
+            animation: scrollRight 15s linear infinite;
+        }
+
+        .scroll-container:hover .animate-scroll,
+        .scroll-container:hover .animate-scroll-reverse {
+            animation-play-state: paused;
+        }
+
+        .tool-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(124, 255, 0, 0.3);
+            border-radius: 50px;
+            white-space: nowrap;
+            transition: all 0.3s;
+            margin: 0 8px;
+        }
+
+        .tool-pill:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 25px rgba(124, 255, 0, 0.3);
+            background: rgba(124, 255, 0, 0.1);
+        }
+
+        /* Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -177,75 +196,215 @@
             transform: translateY(0);
         }
 
-        /* Infinite scroll animation for tools & certifications */
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
         }
 
-        .animate-scroll {
-            animation: scrollLeft 25s linear infinite;
-        }
-
-        .animate-scroll-reverse {
-            animation: scrollLeft 30s linear infinite reverse;
-        }
-
-        .scroll-container:hover .animate-scroll,
-        .scroll-container:hover .animate-scroll-reverse {
-            animation-play-state: paused;
-        }
-
-        /* Tool/Certification pill */
-        .tool-pill {
-            display: inline-flex;
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            z-index: 2000;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(42, 42, 42, 0.6);
-            border: 1px solid rgba(125, 250, 42, 0.3);
-            border-radius: 50px;
-            white-space: nowrap;
+        }
+        .modal-content {
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid var(--neon-green);
+        }
+        .modal-content a {
+            display: block;
+            color: var(--neon-green);
+            text-decoration: none;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(124, 255, 0, 0.1);
+            border-radius: 10px;
             transition: all 0.3s;
         }
-
-        .tool-pill:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 25px rgba(125, 250, 42, 0.3);
-            background: rgba(125, 250, 42, 0.1);
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--deep-black);
-        }
-        ::-webkit-scrollbar-thumb {
+        .modal-content a:hover {
             background: var(--neon-green);
-            border-radius: 10px;
+            color: var(--deep-black);
         }
+
+        /* Testimonial Slider */
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+        .testimonial {
+            min-width: 100%;
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .testimonial p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Social Icons */
+        .social-icon-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(124, 255, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: var(--off-white);
+            margin: 0 8px;
+        }
+        .social-icon-circle:hover {
+            border-color: var(--neon-green);
+            background: rgba(124, 255, 0, 0.15);
+            transform: translateY(-5px);
+            color: var(--neon-green);
+        }
+
+        /* Floating Buttons */
+        .float-wa {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #25D366;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            color: white;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--neon-green);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            color: var(--deep-black);
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .scroll-top:hover { transform: translateY(-3px); }
+
+        /* Magnetic Button */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        /* Form Select Styling */
+        .form-select, .form-input {
+            background: transparent;
+            border-bottom: 1px solid #111111;
+            padding: 16px 8px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .form-select option, .form-input option {
+            background: #111111;
+            color: #FFFFFF;
+        }
+        .form-select:focus, .form-input:focus {
+            border-color: #7CFF00;
+            outline: none;
+        }
+        
+        /* Phone row */
+        .phone-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+        }
+
+        /* Button Colors */
+        .btn-wa {
+            background: #25D366;
+            color: white;
+        }
+        .btn-wa:hover {
+            background: #128C7E;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
+        }
+        .btn-email {
+            background: #7CFF00;
+            color: #050505;
+        }
+        .btn-email:hover {
+            background: #00FF88;
+            box-shadow: 0 0 30px rgba(124, 255, 0, 0.5);
+        }
+        .btn-call {
+            border: 2px solid #7CFF00;
+            color: #7CFF00;
+            background: transparent;
+        }
+        .btn-call:hover {
+            background: #7CFF00;
+            color: #050505;
+            box-shadow: 0 0 30px rgba(124, 255, 0, 0.5);
+        }
+
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep-black); }
+        ::-webkit-scrollbar-thumb { background: var(--neon-green); border-radius: 10px; }
 
         @media (max-width: 768px) {
-            .cursor, .cursor-dot {
-                display: none;
-            }
-            body {
-                cursor: auto;
+            .cursor, .cursor-dot { display: none; }
+            .phone-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
         }
     </style>
 </head>
-<body class="bg-[#0B0B0B] text-[#F5F5F5]">
+<body>
 
-    <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- Page Loader -->
-    <div id="loader" style="position:fixed;inset:0;background:#0B0B0B;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s,visibility 0.8s;">
-        <div style="font-size:4rem;font-weight:900;color:#7DFA2A;font-family:'Space Grotesk',sans-serif;text-shadow:0 0 40px #7DFA2A;animation:pulse 1.5s infinite;">MT.</div>
+    <!-- Loader -->
+    <div id="loader" style="position:fixed;inset:0;background:#050505;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s;">
+        <div style="font-size:4rem;font-weight:900;color:#7CFF00;font-family:'Space Grotesk',sans-serif;text-shadow:0 0 40px #7CFF00;animation:pulse 1.5s infinite;">MT.</div>
     </div>
 
     <style>
@@ -256,612 +415,498 @@
     </style>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-[#2A2A2A]">
+    <nav class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-display font-bold text-[#7DFA2A] glow-text">MT.</a>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-[#F5F5F5]/70">
-                <a href="#about" class="hover:text-[#7DFA2A] transition">About</a>
-                <a href="#services" class="hover:text-[#7DFA2A] transition">Services</a>
-                <a href="#portfolio" class="hover:text-[#7DFA2A] transition">Work</a>
-                <a href="#tools" class="hover:text-[#7DFA2A] transition">Tools</a>
-                <a href="#contact" class="hover:text-[#7DFA2A] transition">Contact</a>
+            <a href="#" class="text-2xl font-display font-bold text-[#7CFF00] glow-text">MT.</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-[#FFFFFF]/70">
+                <a href="#about" class="hover:text-[#7CFF00] transition">About</a>
+                <a href="#services" class="hover:text-[#7CFF00] transition">Services</a>
+                <a href="#portfolio" class="hover:text-[#7CFF00] transition">Work</a>
+                <a href="#contact" class="hover:text-[#7CFF00] transition">Contact</a>
             </div>
-            <a href="https://wa.me/+923071533354" target="_blank" class="px-6 py-2 bg-[#7DFA2A] text-[#0B0B0B] rounded-full font-semibold text-sm hover:shadow-[0_0_30px_rgba(125,250,42,0.5)] transition-all magnetic-btn">
+            <a href="#contact" class="px-6 py-2 bg-[#7CFF00] text-[#050505] rounded-full font-semibold text-sm hover:shadow-[0_0_30px_rgba(124,255,0,0.5)] transition-all">
                 <i class="fab fa-whatsapp mr-1"></i> Chat Now
             </a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
         <div class="floating-shape w-[400px] h-[400px] top-20 left-10" style="animation-delay:0s;"></div>
         <div class="floating-shape w-[300px] h-[300px] bottom-20 right-10" style="animation-delay:4s;"></div>
         <div class="floating-shape w-[200px] h-[200px] top-1/2 left-1/2" style="animation-delay:2s;"></div>
 
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
-            <!-- Portrait Image - YOUR ACTUAL PHOTO -->
-            <div class="reveal w-64 h-64 lg:w-[28rem] lg:h-[28rem] portrait-container flex-shrink-0">
-                <!-- ⚠️ REPLACE THIS SRC WITH YOUR DIRECT IMAGE URL FROM IMGBB -->
-                <!-- Right-click your image on ImgBB, select "Copy image address" and paste below -->
-                <img 
-                    src="https://i.ibb.co/bRYrj3Tj/profile.jpg" 
-                    alt="Muhammad Tahir - Creative Designer & UI/UX Specialist" 
-                    class="w-full h-full object-cover"
-                    style="mix-blend-mode: normal; filter: contrast(1.05) brightness(1.02);"
-                    onerror="this.onerror=null; this.src='https://placehold.co/600x600/1a1a1a/F5F5F5?text=Muhammad+Tahir'; console.log('Image failed to load. Please update with correct direct URL from ImgBB');"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/40 via-transparent to-transparent rounded-full"></div>
-            </div>
-
             <div class="text-center lg:text-left flex-1">
                 <div class="reveal">
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-none tracking-tight">
-                        Muhammad<br>
-                        <span class="text-[#7DFA2A] glow-text">Tahir</span>
+                        Muhammad<br><span class="text-[#7CFF00] glow-text">Tahir</span>
                     </h1>
                 </div>
-                <div class="reveal" style="transition-delay: 0.2s;">
-                    <p class="text-xl md:text-2xl text-[#F5F5F5]/70 mt-6 font-light">
-                        Graphic Designer • UI/UX Designer • Brand Identity Specialist • Video Editor
+                <div class="reveal" style="transition-delay:0.2s;">
+                    <p class="text-xl md:text-2xl text-[#A0A0A0] mt-6 font-light" id="animatedRole">
+                        Graphic Designer
                     </p>
                 </div>
-                <div class="reveal" style="transition-delay: 0.4s;">
-                    <p class="text-[#7DFA2A]/80 mt-4 text-lg italic">
-                        "Designing Modern Digital Experiences That Elevate Brands."
+                <div class="reveal" style="transition-delay:0.4s;">
+                    <p class="text-[#7CFF00]/80 mt-4 text-lg italic">
+                        Designing Modern Digital Experiences That Elevate Brands
                     </p>
                 </div>
-                <div class="reveal flex flex-wrap gap-4 mt-10 justify-center lg:justify-start" style="transition-delay: 0.6s;">
-                    <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="magnetic-btn px-8 py-3 border border-[#7DFA2A] text-[#7DFA2A] rounded-full font-semibold hover:bg-[#7DFA2A] hover:text-[#0B0B0B] transition-all duration-300">
-                        <i class="fab fa-behance mr-2"></i> View Portfolio
-                    </a>
-                    <a href="#contact" class="magnetic-btn px-8 py-3 bg-[#7DFA2A] text-[#0B0B0B] rounded-full font-semibold hover:shadow-[0_0_40px_rgba(125,250,42,0.7)] transition-all">
+                <div class="reveal flex flex-wrap gap-4 mt-10 justify-center lg:justify-start" style="transition-delay:0.6s;">
+                    <a href="#contact" class="magnetic-btn px-8 py-3 bg-[#7CFF00] text-[#050505] rounded-full font-semibold hover:shadow-[0_0_40px_rgba(124,255,0,0.7)] transition-all">
                         Hire Me
                     </a>
-                    <a href="https://wa.me/+923071533354" target="_blank" class="magnetic-btn px-8 py-3 border border-[#7DFA2A]/50 text-[#F5F5F5] rounded-full font-semibold hover:border-[#7DFA2A] hover:text-[#7DFA2A] transition-all">
-                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="magnetic-btn px-8 py-3 border border-[#7CFF00] text-[#7CFF00] rounded-full font-semibold hover:bg-[#7CFF00] hover:text-[#050505] transition-all">
+                        View Portfolio
                     </a>
+                </div>
+                <div class="reveal mt-6" style="transition-delay:0.8s;">
+                    <p class="text-[#7CFF00] text-sm">✨ Trusted by 35+ happy clients worldwide</p>
+                </div>
+            </div>
+
+            <div class="reveal flex-1 flex justify-center" style="transition-delay:0.3s;">
+                <div class="w-64 h-64 lg:w-96 lg:h-96 portrait-container">
+                    <img src="https://i.ibb.co/Z6G3YbpB/Gemini-Generated-Image-3pjxjw3pjxjw3pjx.png" alt="Muhammad Tahir" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/111111/7CFF00?text=MT'"/>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-[#7CFF00] text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat1">0</span><p class="text-[#A0A0A0] mt-2">Years Experience</p></div>
+            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat2">0</span><p class="text-[#A0A0A0] mt-2">Projects Completed</p></div>
+            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat3">0</span><p class="text-[#A0A0A0] mt-2">Happy Clients</p></div>
+            <div class="glass-card p-6 text-center reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text" id="stat4">0</span><p class="text-[#A0A0A0] mt-2">Brands Worked With</p></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">About <span class="text-[#7CFF00]">Me</span></h2>
+            </div>
+            <div class="reveal">
+                <p class="text-[#A0A0A0] leading-relaxed text-base md:text-lg">
+                    Hi, I'm Muhammad Tahir, a multidisciplinary creative professional specializing as a Graphic Designer, UI/UX Designer, Brand Identity Specialist, and Video Editor. With over 1.5 years of industry experience, I have partnered with dynamic organizations like One Atom Solutions, Clan Group, Xpertsones, and XpertDigi to craft functional and visually striking digital experiences. My hands-on expertise is backed by a solid academic foundation, including a BS in Visual Communication from the University of Management and Technology (UMT), specialized 6-month diplomas in both UI/UX and Graphic Design from PNY, and a 2-month Video Editing certification from NAVTTC. Whether I am building intuitive user interfaces, shaping brand identities, or editing impactful video content, my goal is always to translate complex ideas into seamless, modern designs that help brands stand out.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services Section -->
+    <section id="services" class="py-20 px-6 bg-[#111111]/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">Featured <span class="text-[#7CFF00]">Services</span></h2>
+                <p class="text-[#A0A0A0] mt-4">Creative solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <div class="py-12 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold">Tools & <span class="text-[#7CFF00]">Software</span></h2>
+        </div>
+        <div class="scroll-container relative">
+            <div class="flex animate-scroll" id="toolsMarquee"></div>
+        </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="py-12 px-6 overflow-hidden bg-[#111111]/10">
+        <div class="max-w-7xl mx-auto text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold"><span class="text-[#7CFF00]">Certifications</span> & Education</h2>
+        </div>
+        <div class="scroll-container relative">
+            <div class="flex animate-scroll-reverse" id="certMarquee"></div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section - NO FILTER BUTTONS -->
+    <section id="portfolio" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">Featured <span class="text-[#7CFF00]">Projects</span></h2>
+                <p class="text-[#A0A0A0] mt-4">Explore my latest creative work</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid"></div>
+            <div class="text-center mt-12">
+                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-[#7CFF00] text-[#050505] rounded-full font-semibold hover:shadow-[0_0_40px_rgba(124,255,0,0.5)] transition-all">
+                    <i class="fab fa-behance"></i> View All on Behance
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me -->
+    <section class="py-20 px-6 bg-[#111111]/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">Why <span class="text-[#7CFF00]">Choose Me</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="whyChooseGrid"></div>
+        </div>
+    </section>
+
+    <!-- Working Process -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">My Working <span class="text-[#7CFF00]">Process</span></h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6" id="processGrid"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section class="py-20 px-6 bg-[#111111]/10">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">Client <span class="text-[#7CFF00]">Reviews</span></h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Icons -->
+    <section class="py-16 text-center">
+        <div class="reveal">
+            <h2 class="text-3xl font-display font-bold mb-8">Connect <span class="text-[#7CFF00]">With Me</span></h2>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="social-icon-circle"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/itsdesignbytahir" target="_blank" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/itsdesignbytahir" target="_blank" class="social-icon-circle"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.x.com/itsdesignbytahi" target="_blank" class="social-icon-circle"><i class="fab fa-twitter"></i></a>
+                <a href="https://wa.me/923071533354" target="_blank" class="social-icon-circle"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-display font-bold">Let's <span class="text-[#7CFF00]">Work Together</span></h2>
+                <p class="text-[#A0A0A0] mt-4">Have a project in mind? Let's create something extraordinary.</p>
+                <p class="text-[#7CFF00] mt-4"><i class="fas fa-envelope"></i> itsdesignbytahir@gmail.com</p>
+            </div>
+            
+            <form id="contactForm" class="reveal space-y-6" onsubmit="return handleFormSubmit(event)">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" id="name" placeholder="Your Full Name" required class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
+                    <input type="email" id="email" placeholder="Email Address" required class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
                 </div>
                 
-                <div class="reveal flex gap-4 mt-8 justify-center lg:justify-start" style="transition-delay: 0.8s;">
-                    <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition text-sm flex items-center gap-1">
-                        <i class="fab fa-instagram"></i> @itsdesignbytahir
-                    </a>
-                    <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition text-sm flex items-center gap-1">
-                        <i class="fab fa-behance"></i> Behance
-                    </a>
+                <div class="phone-row">
+                    <select id="countryCode" class="form-select w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] focus:border-[#7CFF00] outline-none transition">
+                        <option value="+92">🇵🇰 +92 (Pakistan)</option>
+                        <option value="+1">🇺🇸 +1 (USA)</option>
+                        <option value="+44">🇬🇧 +44 (UK)</option>
+                        <option value="+91">🇮🇳 +91 (India)</option>
+                        <option value="+971">🇦🇪 +971 (UAE)</option>
+                        <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
+                        <option value="+61">🇦🇺 +61 (Australia)</option>
+                        <option value="+49">🇩🇪 +49 (Germany)</option>
+                        <option value="+33">🇫🇷 +33 (France)</option>
+                        <option value="+81">🇯🇵 +81 (Japan)</option>
+                    </select>
+                    <input type="tel" id="phone" placeholder="Phone Number" required class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
                 </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-[#7DFA2A] text-2xl"></i>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-28 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold text-center lg:text-left">
-                    About <span class="text-[#7DFA2A]">Me</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-16 items-start">
-                <!-- About Text -->
-                <div class="reveal">
-                    <div class="space-y-5 text-[#F5F5F5]/80 leading-relaxed text-base md:text-lg">
-                        <p>
-                            Hi, I'm <span class="text-[#7DFA2A] font-semibold">Muhammad Tahir</span>, a multidisciplinary creative professional specializing as a 
-                            <span class="text-[#F5F5F5] font-medium">Graphic Designer, UI/UX Designer, Brand Identity Specialist, and Video Editor</span>.
-                        </p>
-                        <p>
-                            With over <span class="text-[#7DFA2A] font-semibold">1.5 years of industry experience</span>, I have partnered with dynamic organizations like 
-                            <span class="text-[#F5F5F5] font-medium">One Atom Solutions, Clan Group, Xpertsones, and XpertDigi</span> 
-                            to craft functional and visually striking digital experiences.
-                        </p>
-                        <p>
-                            My hands-on expertise is backed by a solid academic foundation, including a 
-                            <span class="text-[#7DFA2A] font-semibold">BS in Visual Communication from the University of Management and Technology (UMT)</span>, 
-                            specialized 6-month diplomas in both <span class="text-[#F5F5F5] font-medium">UI/UX and Graphic Design from PNY</span>, 
-                            and a 2-month <span class="text-[#F5F5F5] font-medium">Video Editing certification from NAVTTC</span>.
-                        </p>
-                        <p>
-                            Whether I am building intuitive user interfaces, shaping brand identities, or editing impactful video content, 
-                            my goal is always to translate complex ideas into seamless, modern designs that help brands stand out.
-                        </p>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-6 mt-10">
-                        <div class="glass-card p-6 text-center">
-                            <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">1.5+</span>
-                            <p class="text-[#F5F5F5]/50 mt-1 text-sm">Years Experience</p>
-                        </div>
-                        <div class="glass-card p-6 text-center">
-                            <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">50+</span>
-                            <p class="text-[#F5F5F5]/50 mt-1 text-sm">Projects Delivered</p>
-                        </div>
-                        <div class="glass-card p-6 text-center">
-                            <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">4+</span>
-                            <p class="text-[#F5F5F5]/50 mt-1 text-sm">Companies Served</p>
-                        </div>
-                        <div class="glass-card p-6 text-center">
-                            <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">BS</span>
-                            <p class="text-[#F5F5F5]/50 mt-1 text-sm">Visual Communication</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills Grid -->
-                <div class="reveal grid grid-cols-2 gap-4" style="transition-delay: 0.3s;">
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-paint-brush text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">Graphic Design</h4>
-                    </div>
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-laptop-code text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">UI/UX Design</h4>
-                    </div>
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-fingerprint text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">Brand Identity</h4>
-                    </div>
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-hashtag text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">Social Media</h4>
-                    </div>
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-video text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">Video Editing</h4>
-                    </div>
-                    <div class="glass-card p-6 text-center">
-                        <i class="fas fa-film text-3xl text-[#7DFA2A] mb-4"></i>
-                        <h4 class="font-semibold">Motion Graphics</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-28 px-6 bg-[#2A2A2A]/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Premium <span class="text-[#7DFA2A]">Services</span>
-                </h2>
-                <p class="text-[#F5F5F5]/50 mt-4 text-lg">Crafting excellence across every creative dimension</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.1s;">
-                    <i class="fas fa-crown text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Brand Identity</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Strategic brand identities that resonate and endure.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.2s;">
-                    <i class="fas fa-mobile-alt text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">UI/UX Design</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Intuitive interfaces with seamless user experiences.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.3s;">
-                    <i class="fas fa-share-nodes text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Social Media</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Scroll-stopping creative that drives engagement.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.4s;">
-                    <i class="fab fa-youtube text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">YT Thumbnails</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">High-CTR thumbnails that boost your views.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.5s;">
-                    <i class="fas fa-play-circle text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Motion Graphics</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Dynamic animations that bring ideas to life.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.6s;">
-                    <i class="fas fa-cut text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Video Editing</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Cinematic edits with professional finesse.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.7s;">
-                    <i class="fas fa-bullhorn text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Marketing</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Creative assets that convert and perform.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay: 0.8s;">
-                    <i class="fas fa-globe text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h3 class="text-xl font-bold">Website UI</h3>
-                    <p class="text-[#F5F5F5]/50 mt-3 text-sm">Stunning web interfaces with modern aesthetics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TOOLS & SOFTWARE SECTION (Auto-Animated) -->
-    <section id="tools" class="py-24 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-12">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Tools & <span class="text-[#7DFA2A]">Software</span>
-                </h2>
-                <p class="text-[#F5F5F5]/50 mt-4 text-lg">Industry-standard tools I use daily to create magic</p>
-            </div>
-        </div>
-        
-        <div class="scroll-container relative mb-8">
-            <div class="flex gap-4 animate-scroll">
-                <span class="tool-pill"><i class="fab fa-figma text-[#7DFA2A]"></i> Figma</span>
-                <span class="tool-pill"><i class="fas fa-image text-[#7DFA2A]"></i> Adobe Photoshop</span>
-                <span class="tool-pill"><i class="fas fa-bezier-curve text-[#7DFA2A]"></i> Adobe Illustrator</span>
-                <span class="tool-pill"><i class="fas fa-video text-[#7DFA2A]"></i> Adobe Premiere Pro</span>
-                <span class="tool-pill"><i class="fas fa-magic text-[#7DFA2A]"></i> Adobe After Effects</span>
-                <span class="tool-pill"><i class="fas fa-newspaper text-[#7DFA2A]"></i> Adobe InDesign</span>
-                <span class="tool-pill"><i class="fas fa-vector-square text-[#7DFA2A]"></i> Adobe XD</span>
-                <span class="tool-pill"><i class="fas fa-pen-nib text-[#7DFA2A]"></i> CorelDraw</span>
-                <span class="tool-pill"><i class="fas fa-mobile-screen text-[#7DFA2A]"></i> Capcut</span>
-                <span class="tool-pill"><i class="fas fa-robot text-[#7DFA2A]"></i> ChatGPT</span>
-                <span class="tool-pill"><i class="fas fa-brain text-[#7DFA2A]"></i> Gemini</span>
-                <span class="tool-pill"><i class="fas fa-palette text-[#7DFA2A]"></i> Leonardo AI</span>
-                <span class="tool-pill"><i class="fas fa-film text-[#7DFA2A]"></i> VEO3</span>
-                <span class="tool-pill"><i class="fab fa-meta text-[#7DFA2A]"></i> Meta</span>
-                <span class="tool-pill"><i class="fab fa-facebook text-[#7DFA2A]"></i> Facebook</span>
-                <span class="tool-pill"><i class="fab fa-instagram text-[#7DFA2A]"></i> Instagram</span>
-                <!-- Duplicate -->
-                <span class="tool-pill"><i class="fab fa-figma text-[#7DFA2A]"></i> Figma</span>
-                <span class="tool-pill"><i class="fas fa-image text-[#7DFA2A]"></i> Adobe Photoshop</span>
-                <span class="tool-pill"><i class="fas fa-bezier-curve text-[#7DFA2A]"></i> Adobe Illustrator</span>
-                <span class="tool-pill"><i class="fas fa-video text-[#7DFA2A]"></i> Adobe Premiere Pro</span>
-                <span class="tool-pill"><i class="fas fa-magic text-[#7DFA2A]"></i> Adobe After Effects</span>
-                <span class="tool-pill"><i class="fas fa-newspaper text-[#7DFA2A]"></i> Adobe InDesign</span>
-                <span class="tool-pill"><i class="fas fa-vector-square text-[#7DFA2A]"></i> Adobe XD</span>
-                <span class="tool-pill"><i class="fas fa-pen-nib text-[#7DFA2A]"></i> CorelDraw</span>
-                <span class="tool-pill"><i class="fas fa-mobile-screen text-[#7DFA2A]"></i> Capcut</span>
-                <span class="tool-pill"><i class="fas fa-robot text-[#7DFA2A]"></i> ChatGPT</span>
-                <span class="tool-pill"><i class="fas fa-brain text-[#7DFA2A]"></i> Gemini</span>
-                <span class="tool-pill"><i class="fas fa-palette text-[#7DFA2A]"></i> Leonardo AI</span>
-                <span class="tool-pill"><i class="fas fa-film text-[#7DFA2A]"></i> VEO3</span>
-                <span class="tool-pill"><i class="fab fa-meta text-[#7DFA2A]"></i> Meta</span>
-                <span class="tool-pill"><i class="fab fa-facebook text-[#7DFA2A]"></i> Facebook</span>
-                <span class="tool-pill"><i class="fab fa-instagram text-[#7DFA2A]"></i> Instagram</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- CERTIFICATIONS SECTION (Auto-Animated Reverse) -->
-    <section class="py-24 px-6 overflow-hidden bg-[#2A2A2A]/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-12">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    <span class="text-[#7DFA2A]">Certifications</span> & Education
-                </h2>
-                <p class="text-[#F5F5F5]/50 mt-4 text-lg">Backed by recognized institutions and platforms</p>
-            </div>
-        </div>
-        
-        <div class="scroll-container relative">
-            <div class="flex gap-4 animate-scroll-reverse">
-                <span class="tool-pill"><i class="fas fa-certificate text-[#7DFA2A]"></i> NAVTTC Certified</span>
-                <span class="tool-pill"><i class="fas fa-graduation-cap text-[#7DFA2A]"></i> PNY (UI/UX & Graphic Design)</span>
-                <span class="tool-pill"><i class="fas fa-laptop text-[#7DFA2A]"></i> Udemy</span>
-                <span class="tool-pill"><i class="fas fa-briefcase text-[#7DFA2A]"></i> Upwork Verified</span>
-                <span class="tool-pill"><i class="fas fa-store text-[#7DFA2A]"></i> Fiverr</span>
-                <span class="tool-pill"><i class="fab fa-meta text-[#7DFA2A]"></i> Meta Certified</span>
-                <span class="tool-pill"><i class="fab fa-google text-[#7DFA2A]"></i> Google Certified</span>
-                <span class="tool-pill"><i class="fas fa-university text-[#7DFA2A]"></i> Coursera</span>
-                <span class="tool-pill"><i class="fas fa-building-columns text-[#7DFA2A]"></i> UMT (BS Visual Communication)</span>
-                <!-- Duplicate -->
-                <span class="tool-pill"><i class="fas fa-certificate text-[#7DFA2A]"></i> NAVTTC Certified</span>
-                <span class="tool-pill"><i class="fas fa-graduation-cap text-[#7DFA2A]"></i> PNY (UI/UX & Graphic Design)</span>
-                <span class="tool-pill"><i class="fas fa-laptop text-[#7DFA2A]"></i> Udemy</span>
-                <span class="tool-pill"><i class="fas fa-briefcase text-[#7DFA2A]"></i> Upwork Verified</span>
-                <span class="tool-pill"><i class="fas fa-store text-[#7DFA2A]"></i> Fiverr</span>
-                <span class="tool-pill"><i class="fab fa-meta text-[#7DFA2A]"></i> Meta Certified</span>
-                <span class="tool-pill"><i class="fab fa-google text-[#7DFA2A]"></i> Google Certified</span>
-                <span class="tool-pill"><i class="fas fa-university text-[#7DFA2A]"></i> Coursera</span>
-                <span class="tool-pill"><i class="fas fa-building-columns text-[#7DFA2A]"></i> UMT (BS Visual Communication)</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-28 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-12">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Selected <span class="text-[#7DFA2A]">Works</span>
-                </h2>
-                <p class="text-[#F5F5F5]/50 mt-4">Click any project to view full portfolio on Behance</p>
-            </div>
-            
-            <div class="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/7DFA2A?text=UI/UX+Design" alt="UI/UX Design" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">UI/UX Design</span><h4 class="text-lg font-bold mt-1">Fintech Dashboard</h4></div>
-                </a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/F5F5F5?text=Brand+Identity" alt="Brand Identity" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">Branding</span><h4 class="text-lg font-bold mt-1">Luxury Rebrand</h4></div>
-                </a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/7DFA2A?text=Social+Media" alt="Social Media" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">Social Media</span><h4 class="text-lg font-bold mt-1">Campaign 2025</h4></div>
-                </a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/F5F5F5?text=Thumbnail" alt="YouTube Thumbnail" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">YouTube</span><h4 class="text-lg font-bold mt-1">Viral Thumbnail</h4></div>
-                </a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/7DFA2A?text=Video+Edit" alt="Video Editing" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">Video Editing</span><h4 class="text-lg font-bold mt-1">Cinematic Reel</h4></div>
-                </a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="glass-card overflow-hidden group cursor-pointer block">
-                    <img src="https://placehold.co/600x400/1a1a1a/F5F5F5?text=Motion+GFX" alt="Motion Graphics" class="w-full h-56 object-cover transition group-hover:scale-105 duration-500"/>
-                    <div class="p-5"><span class="text-[#7DFA2A] text-xs uppercase tracking-wider">Motion Graphics</span><h4 class="text-lg font-bold mt-1">Logo Animation</h4></div>
-                </a>
-            </div>
-            
-            <div class="reveal text-center mt-12">
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" 
-                   class="inline-flex items-center gap-2 px-10 py-4 bg-[#7DFA2A] text-[#0B0B0B] font-bold rounded-full hover:shadow-[0_0_50px_rgba(125,250,42,0.6)] transition-all duration-300 magnetic-btn text-lg">
-                    <i class="fab fa-behance text-xl"></i> View Full Portfolio on Behance
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE ME -->
-    <section class="py-28 px-6 bg-[#2A2A2A]/10">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Why <span class="text-[#7DFA2A]">Choose Me</span>
-                </h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="reveal glass-card p-8 text-center">
-                    <i class="fas fa-lightbulb text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">Creative Strategy</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Innovative approaches tailored to your goals.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay:0.1s;">
-                    <i class="fas fa-medal text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">Professional Quality</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Pixel-perfect, industry-standard deliverables.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay:0.2s;">
-                    <i class="fas fa-rocket text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">Fast Delivery</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Timely execution without compromising quality.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay:0.3s;">
-                    <i class="fas fa-cube text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">Modern Thinking</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Future-forward design with current trends.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay:0.4s;">
-                    <i class="fas fa-users text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">User-Focused</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Designs centered around your audience.</p>
-                </div>
-                <div class="reveal glass-card p-8 text-center" style="transition-delay:0.5s;">
-                    <i class="fas fa-comments text-4xl text-[#7DFA2A] mb-5"></i>
-                    <h4 class="text-xl font-bold">Visual Communication</h4>
-                    <p class="text-[#F5F5F5]/50 mt-3">Clear, powerful messaging through design.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="py-28 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Client <span class="text-[#7DFA2A]">Love</span>
-                </h2>
-            </div>
-            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory" id="testimonialScroll">
-                <div class="glass-card min-w-[320px] md:min-w-[400px] p-8 flex-shrink-0 snap-center">
-                    <div class="flex text-[#7DFA2A] mb-4">★★★★★</div>
-                    <p class="text-[#F5F5F5]/80 italic leading-relaxed">"Muhammad transformed our brand completely. The attention to detail and creative vision is unmatched."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-[#2A2A2A]"></div>
-                        <div><p class="font-bold">Sarah Ahmed</p><p class="text-sm text-[#F5F5F5]/40">CEO, One Atom Solutions</p></div>
-                    </div>
-                </div>
-                <div class="glass-card min-w-[320px] md:min-w-[400px] p-8 flex-shrink-0 snap-center">
-                    <div class="flex text-[#7DFA2A] mb-4">★★★★★</div>
-                    <p class="text-[#F5F5F5]/80 italic leading-relaxed">"The UI/UX design was exceptional. Our engagement increased dramatically. Truly world-class talent."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-[#2A2A2A]"></div>
-                        <div><p class="font-bold">Ali Khan</p><p class="text-sm text-[#F5F5F5]/40">Founder, XpertDigi</p></div>
-                    </div>
-                </div>
-                <div class="glass-card min-w-[320px] md:min-w-[400px] p-8 flex-shrink-0 snap-center">
-                    <div class="flex text-[#7DFA2A] mb-4">★★★★★</div>
-                    <p class="text-[#F5F5F5]/80 italic leading-relaxed">"Fast, professional, and incredibly creative. Muhammad delivered beyond expectations every single time."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-[#2A2A2A]"></div>
-                        <div><p class="font-bold">Zara Malik</p><p class="text-sm text-[#F5F5F5]/40">Marketing Director, Clan Group</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WORK PROCESS -->
-    <section class="py-28 px-6 bg-[#2A2A2A]/10">
-        <div class="max-w-5xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    My <span class="text-[#7DFA2A]">Process</span>
-                </h2>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-                <div class="reveal glass-card p-8 text-center w-40 md:w-48">
-                    <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">01</span>
-                    <h4 class="text-lg font-bold mt-4">Discovery</h4>
-                </div>
-                <div class="reveal glass-card p-8 text-center w-40 md:w-48" style="transition-delay:0.1s;">
-                    <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">02</span>
-                    <h4 class="text-lg font-bold mt-4">Research</h4>
-                </div>
-                <div class="reveal glass-card p-8 text-center w-40 md:w-48" style="transition-delay:0.2s;">
-                    <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">03</span>
-                    <h4 class="text-lg font-bold mt-4">Design</h4>
-                </div>
-                <div class="reveal glass-card p-8 text-center w-40 md:w-48" style="transition-delay:0.3s;">
-                    <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">04</span>
-                    <h4 class="text-lg font-bold mt-4">Revision</h4>
-                </div>
-                <div class="reveal glass-card p-8 text-center w-40 md:w-48" style="transition-delay:0.4s;">
-                    <span class="text-4xl font-display font-bold text-[#7DFA2A] glow-text">05</span>
-                    <h4 class="text-lg font-bold mt-4">Delivery</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL MEDIA SECTION -->
-    <section class="py-20 text-center">
-        <div class="reveal max-w-2xl mx-auto">
-            <h2 class="text-3xl font-display font-bold mb-4">
-                Connect <span class="text-[#7DFA2A]">With Me</span>
-            </h2>
-            <p class="text-[#F5F5F5]/40 mb-10">Follow my creative journey across all platforms</p>
-            <div class="flex justify-center gap-6 flex-wrap">
-                <a href="https://www.facebook.com/itsdesignbytahir" target="_blank" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/itsdesignbytahir" target="_blank" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.x.com/itsdesignbytahir" target="_blank" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="Behance"><i class="fab fa-behance"></i></a>
-                <a href="#" 
-                   class="w-16 h-16 rounded-full border border-[#2A2A2A] flex items-center justify-center text-2xl hover:border-[#7DFA2A] hover:text-[#7DFA2A] hover:shadow-[0_0_30px_rgba(125,250,42,0.4)] transition-all duration-300 magnetic-btn"
-                   aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="mt-12">
-                <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" 
-                   class="inline-flex items-center gap-2 text-[#7DFA2A] hover:text-[#F5F5F5] transition font-semibold">
-                    <i class="fab fa-instagram text-xl"></i> Follow @itsdesignbytahir
-                    <i class="fas fa-arrow-right text-sm"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-28 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="reveal text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold">
-                    Let's <span class="text-[#7DFA2A]">Talk</span>
-                </h2>
-                <p class="text-[#F5F5F5]/50 mt-4">Have a project in mind? Let's create something extraordinary together.</p>
-                <a href="https://wa.me/+923071533354" target="_blank" 
-                   class="inline-flex items-center gap-2 mt-4 text-[#7DFA2A] hover:text-[#F5F5F5] transition">
-                    <i class="fab fa-whatsapp"></i> +92 307 1533354
-                </a>
-            </div>
-            <form id="contactForm" class="reveal space-y-6" onsubmit="handleSubmit(event)">
+                
+                <select id="serviceSelect" class="form-select w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] focus:border-[#7CFF00] outline-none transition">
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Brand Identity">Brand Identity</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Motion Graphics">Motion Graphics</option>
+                    <option value="Social Media Design">Social Media Design</option>
+                    <option value="Thumbnail Design">Thumbnail Design</option>
+                    <option value="Website Design">Website Design</option>
+                </select>
+                
                 <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" id="name" placeholder="Your Name" required 
-                        class="w-full bg-transparent border-b border-[#2A2A2A] py-4 px-2 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:border-[#7DFA2A] outline-none transition-colors duration-300"/>
-                    <input type="email" id="email" placeholder="Email Address" required 
-                        class="w-full bg-transparent border-b border-[#2A2A2A] py-4 px-2 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:border-[#7DFA2A] outline-none transition-colors duration-300"/>
+                    <select id="currency" class="form-select w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] focus:border-[#7CFF00] outline-none transition">
+                        <option value="USD">💵 USD ($)</option>
+                        <option value="PKR">🇵🇰 PKR (Rs)</option>
+                        <option value="EUR">🇪🇺 EUR (€)</option>
+                        <option value="GBP">🇬🇧 GBP (£)</option>
+                        <option value="AED">🇦🇪 AED (د.إ)</option>
+                    </select>
+                    <input type="text" id="budget" placeholder="Budget Amount" class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition">
                 </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" id="projectType" placeholder="Project Type (e.g., Branding, UI/UX)" 
-                        class="w-full bg-transparent border-b border-[#2A2A2A] py-4 px-2 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:border-[#7DFA2A] outline-none transition-colors duration-300"/>
-                    <input type="text" id="budget" placeholder="Budget Range (e.g., $500 - $2000)" 
-                        class="w-full bg-transparent border-b border-[#2A2A2A] py-4 px-2 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:border-[#7DFA2A] outline-none transition-colors duration-300"/>
+                
+                <textarea id="message" rows="5" placeholder="Tell me about your project..." class="w-full bg-transparent border-b border-[#111111] py-4 px-2 text-[#FFFFFF] placeholder-[#A0A0A0]/30 focus:border-[#7CFF00] outline-none transition resize-none"></textarea>
+                
+                <div class="flex flex-wrap gap-4 justify-center pt-6">
+                    <button type="button" onclick="sendViaWhatsApp()" class="px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 btn-wa">
+                        <i class="fab fa-whatsapp text-xl"></i> Send via WhatsApp
+                    </button>
+                    <button type="button" onclick="sendViaEmail()" class="px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 btn-email">
+                        <i class="fas fa-envelope text-xl"></i> Send via Email
+                    </button>
+                    <button type="button" onclick="showCallModal()" class="px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 btn-call">
+                        <i class="fas fa-phone text-xl"></i> Call Now
+                    </button>
                 </div>
-                <textarea id="message" rows="5" placeholder="Tell me about your project..." 
-                    class="w-full bg-transparent border-b border-[#2A2A2A] py-4 px-2 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:border-[#7DFA2A] outline-none transition-colors duration-300 resize-none"></textarea>
-                <button type="submit" 
-                    class="w-full py-5 bg-[#7DFA2A] text-[#0B0B0B] font-bold text-lg rounded-full hover:shadow-[0_0_50px_rgba(125,250,42,0.6)] transition-all duration-300 magnetic-btn neon-border">
-                    <i class="fab fa-whatsapp mr-2"></i> Send via WhatsApp
-                </button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-10 border-t border-[#2A2A2A]">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <a href="#" class="text-3xl font-display font-bold text-[#7DFA2A] glow-text mb-4 inline-block">MT.</a>
-            <div class="flex justify-center gap-6 my-6">
-                <a href="https://www.facebook.com/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.x.com/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="text-[#F5F5F5]/40 hover:text-[#7DFA2A] transition"><i class="fab fa-behance"></i></a>
-            </div>
-            <p class="text-[#F5F5F5]/30 text-sm">© 2025 Muhammad Tahir. All Rights Reserved.</p>
-            <p class="text-[#F5F5F5]/15 text-xs mt-2">Crafted with passion & precision.</p>
+    <!-- Footer -->
+    <footer class="py-10 border-t border-[#111111] text-center">
+        <a href="#" class="text-3xl font-display font-bold text-[#7CFF00] glow-text mb-4 inline-block">MT.</a>
+        <div class="flex justify-center gap-6 my-6">
+            <a href="https://www.behance.net/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-behance"></i></a>
+            <a href="https://www.instagram.com/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/itsdesignbytahir" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.x.com/itsdesignbytahi" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/923071533354" target="_blank" class="text-[#A0A0A0]/40 hover:text-[#7CFF00] transition"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p class="text-[#A0A0A0]/30 text-sm">© 2025 Muhammad Tahir. All Rights Reserved.</p>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- Floating Elements -->
+    <a href="https://wa.me/923071533354" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+    <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Call Modal -->
+    <div id="callModal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-[#7CFF00] mb-4">Select a Number</h3>
+            <a href="tel:+923071533354">📱 +92 307 1533354</a>
+            <a href="tel:+923156611794">📱 +92 315 6611794</a>
+            <a href="tel:+923484894475">📱 +92 348 4894475</a>
+            <button id="closeModal" class="mt-4 px-6 py-2 border border-[#7CFF00] text-[#7CFF00] rounded-full hover:bg-[#7CFF00] hover:text-[#050505] transition-all">Close</button>
+        </div>
+    </div>
+
     <script>
-        // ============ PAGE LOADER ============
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            gsap.to(loader, {
-                opacity: 0,
-                duration: 0.8,
-                delay: 0.5,
-                onComplete: () => {
-                    loader.style.display = 'none';
-                }
-            });
+        // ========== FEATURED SERVICES WITH ICONS ==========
+        const featuredServices = [
+            { name: "Graphic Designing", icon: "fas fa-paint-brush" },
+            { name: "Brand Identity", icon: "fas fa-fingerprint" },
+            { name: "Social Media Marketing", icon: "fas fa-chart-line" },
+            { name: "Social Media Campaign Design", icon: "fas fa-hashtag" },
+            { name: "YouTube Thumbnails", icon: "fab fa-youtube" },
+            { name: "UI/UX Design", icon: "fas fa-laptop-code" },
+            { name: "Short Reels Editing", icon: "fas fa-video" },
+            { name: "AI Reels Editing", icon: "fas fa-robot" },
+            { name: "Marriage Video Editing", icon: "fas fa-heart" },
+            { name: "Business Video Editing", icon: "fas fa-briefcase" },
+            { name: "Motion Graphics", icon: "fas fa-film" },
+            { name: "Logo Animations", icon: "fas fa-crown" }
+        ];
+        
+        // ========== FEATURED PROJECTS - MATCHING SERVICES ==========
+        const featuredProjects = [
+            { title: "Creative Brand Identity", service: "Brand Identity", icon: "🎨" },
+            { title: "Social Media Campaign 2025", service: "Social Media Marketing", icon: "📱" },
+            { title: "Modern UI/UX Dashboard", service: "UI/UX Design", icon: "💻" },
+            { title: "YouTube Thumbnail Design", service: "YouTube Thumbnails", icon: "▶️" },
+            { title: "Viral Short Reels Edit", service: "Short Reels Editing", icon: "🎬" },
+            { title: "AI Generated Motion Reel", service: "AI Reels Editing", icon: "🤖" },
+            { title: "Wedding Highlight Film", service: "Marriage Video Editing", icon: "💒" },
+            { title: "Corporate Video Production", service: "Business Video Editing", icon: "🏢" },
+            { title: "Motion Graphics Showreel", service: "Motion Graphics", icon: "✨" },
+            { title: "Logo Animation Package", service: "Logo Animations", icon: "⭐" },
+            { title: "Complete Brand Identity", service: "Brand Identity", icon: "🏷️" },
+            { title: "Graphic Design Portfolio", service: "Graphic Designing", icon: "🖌️" }
+        ];
+        
+        const toolsList = ["Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro", "Adobe After Effects", "Adobe InDesign", "Adobe XD", "Figma", "CapCut", "CorelDraw", "ChatGPT", "Gemini", "Leonardo AI", "VEO 3", "Meta Business Suite", "Facebook", "Instagram"];
+        const certList = ["NAVTTC", "PNY Trainings", "Google", "Meta", "Coursera", "Udemy", "Upwork", "Fiverr"];
+        const processSteps = ["Discovery", "Research", "Strategy", "Design", "Revision", "Delivery"];
+        
+        const whyItems = [
+            { icon: "fas fa-lightbulb", text: "Creative Strategy" },
+            { icon: "fas fa-medal", text: "Professional Quality" },
+            { icon: "fas fa-rocket", text: "Fast Delivery" },
+            { icon: "fas fa-users", text: "User-Focused Design" },
+            { icon: "fas fa-chart-line", text: "Brand Consistency" },
+            { icon: "fas fa-comments", text: "Modern Visual Communication" }
+        ];
+        
+        const testimonials = [
+            { name: "Ahmed Raza", review: "Absolutely outstanding work! The attention to detail was incredible." },
+            { name: "Fatima Khan", review: "Best designer I've ever worked with. Highly professional and creative." },
+            { name: "Omar Farooq", review: "Delivered before deadline and exceeded all expectations." },
+            { name: "Sana Malik", review: "The brand identity he created transformed our business completely." },
+            { name: "Bilal Ahmed", review: "Very responsive and understood exactly what I needed." },
+            { name: "Hira Naeem", review: "Amazing UI/UX work! Our app looks world-class now." },
+            { name: "Usman Chaudhry", review: "Great communication and top quality designs every time." },
+            { name: "Zainab Ali", review: "The video editing was perfect. Will definitely work again." },
+            { name: "Hamza Sheikh", review: "One of the most talented designers I know. Highly recommend!" },
+            { name: "Ayesha Tariq", review: "Very professional and the results were stunning." },
+            { name: "Saad Iqbal", review: "The motion graphics he created went viral on social media!" },
+            { name: "Maria Chaudhry", review: "Excellent work ethic and creative vision. 10/10." },
+            { name: "Fahad Mirza", review: "Understood my brand instantly and delivered amazing work." },
+            { name: "Laiba Arif", review: "Super talented and very easy to work with. Highly satisfied." },
+            { name: "Taha Shahzad", review: "Best freelancer experience I've had. Will hire again." }
+        ];
+
+        // ========== POPULATE SERVICES ==========
+        const servicesGrid = document.getElementById('servicesGrid');
+        featuredServices.forEach(service => {
+            servicesGrid.innerHTML += `<div class="glass-card p-6 text-center reveal"><i class="${service.icon} text-4xl text-[#7CFF00] mb-4 block"></i><h4 class="font-semibold text-lg">${service.name}</h4></div>`;
         });
 
-        // ============ CUSTOM CURSOR ============
+        // ========== POPULATE PORTFOLIO (NO FILTERS) ==========
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        featuredProjects.forEach(project => {
+            portfolioGrid.innerHTML += `
+                <div class="glass-card overflow-hidden cursor-pointer reveal" onclick="window.open('https://www.behance.net/itsdesignbytahir', '_blank')">
+                    <div class="h-48 bg-gradient-to-br from-[#7CFF00] to-[#00FF88] flex items-center justify-center text-6xl">${project.icon}</div>
+                    <div class="p-5"><span class="text-[#7CFF00] text-xs uppercase">${project.service}</span><h4 class="text-lg font-bold mt-2">${project.title}</h4></div>
+                </div>
+            `;
+        });
+
+        // ========== MARQUEE ==========
+        function setupMarquee(id, arr) {
+            const container = document.getElementById(id);
+            let content = '';
+            arr.forEach(item => { content += `<span class="tool-pill"><i class="fas fa-circle text-[#7CFF00] text-xs"></i> ${item}</span>`; });
+            container.innerHTML = content + content;
+        }
+        setupMarquee('toolsMarquee', toolsList);
+        setupMarquee('certMarquee', certList);
+        
+        // Why Choose Me
+        const whyGrid = document.getElementById('whyChooseGrid');
+        whyItems.forEach(item => {
+            whyGrid.innerHTML += `<div class="glass-card p-8 text-center reveal"><i class="${item.icon} text-4xl text-[#7CFF00] mb-4"></i><h4 class="text-xl font-bold">${item.text}</h4></div>`;
+        });
+        
+        // Process Steps
+        const processGrid = document.getElementById('processGrid');
+        processSteps.forEach((step, index) => {
+            processGrid.innerHTML += `<div class="glass-card p-8 text-center w-40 reveal"><span class="text-4xl font-display font-bold text-[#7CFF00] glow-text">0${index+1}</span><h4 class="text-lg font-bold mt-4">${step}</h4></div>`;
+        });
+
+        // ========== STATS COUNTER ==========
+        function animateCounter(el, target) {
+            let count = 0;
+            let interval = setInterval(() => {
+                if (count >= target) clearInterval(interval);
+                else { count++; el.innerText = count; }
+            }, 40);
+        }
+        setTimeout(() => {
+            animateCounter(document.getElementById('stat1'), 2);
+            animateCounter(document.getElementById('stat2'), 50);
+            animateCounter(document.getElementById('stat3'), 35);
+            animateCounter(document.getElementById('stat4'), 4);
+        }, 500);
+
+        // ========== TESTIMONIAL SLIDER ==========
+        let slideIndex = 0;
+        const track = document.getElementById('testimonialTrack');
+        testimonials.forEach(t => {
+            track.innerHTML += `<div class="testimonial"><div class="flex justify-center text-[#7CFF00] mb-4">★★★★★</div><p class="text-[#A0A0A0] italic">"${t.review}"</p><div class="mt-6"><p class="font-bold text-[#7CFF00]">${t.name}</p></div></div>`;
+        });
+        setInterval(() => {
+            slideIndex = (slideIndex + 1) % testimonials.length;
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }, 4000);
+
+        // ========== ANIMATED ROLE TEXT ==========
+        const roles = ["Graphic Designer", "UI/UX Designer", "Brand Identity Specialist", "Video Editor"];
+        let roleIndex = 0;
+        setInterval(() => {
+            roleIndex = (roleIndex + 1) % roles.length;
+            const roleEl = document.getElementById('animatedRole');
+            roleEl.style.opacity = '0';
+            setTimeout(() => {
+                roleEl.innerText = roles[roleIndex];
+                roleEl.style.opacity = '1';
+            }, 200);
+        }, 2200);
+
+        // ========== FORM FUNCTIONS ==========
+        function getFormData() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const countryCode = document.getElementById('countryCode').value;
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('serviceSelect').value;
+            const currency = document.getElementById('currency').value;
+            const budget = document.getElementById('budget').value.trim();
+            const message = document.getElementById('message').value.trim();
+            return { name, email, countryCode, phone, service, currency, budget, message };
+        }
+        
+        function sendViaWhatsApp() {
+            const data = getFormData();
+            if (!data.name || !data.email || !data.phone) {
+                alert("Please fill in Name, Email, and Phone Number");
+                return;
+            }
+            const text = `*NEW PROJECT INQUIRY*%0A%0A👤 *Name:* ${data.name}%0A📧 *Email:* ${data.email}%0A📞 *Phone:* ${data.countryCode} ${data.phone}%0A🛠️ *Service:* ${data.service || 'Not specified'}%0A💰 *Budget:* ${data.currency || 'USD'} ${data.budget || 'Not specified'}%0A💬 *Message:* ${data.message || 'No message'}`;
+            window.open(`https://wa.me/923071533354?text=${text}`, '_blank');
+        }
+        
+        function sendViaEmail() {
+            const data = getFormData();
+            if (!data.name || !data.email || !data.phone) {
+                alert("Please fill in Name, Email, and Phone Number");
+                return;
+            }
+            const subject = `Project Inquiry from ${data.name}`;
+            const body = `Name: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.countryCode} ${data.phone}%0AService: ${data.service || 'Not specified'}%0ABudget: ${data.currency || 'USD'} ${data.budget || 'Not specified'}%0AMessage: ${data.message || 'No message'}`;
+            window.location.href = `mailto:itsdesignbytahir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        function showCallModal() {
+            document.getElementById('callModal').style.display = 'flex';
+        }
+        
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            return false;
+        }
+        
+        // ========== MODAL ==========
+        const modal = document.getElementById('callModal');
+        document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+        // ========== SCROLL TO TOP ==========
+        document.getElementById('scrollTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // ========== LOADER ==========
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 800); }, 500);
+        });
+
+        // ========== CUSTOM CURSOR ==========
         const cursor = document.getElementById('cursor');
         const cursorDot = document.getElementById('cursorDot');
-
         if (window.innerWidth > 768) {
             document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, {
-                    x: e.clientX - 10,
-                    y: e.clientY - 10,
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
-                gsap.to(cursorDot, {
-                    x: e.clientX - 3,
-                    y: e.clientY - 3,
-                    duration: 0.1
-                });
-            });
-
-            const hoverElements = document.querySelectorAll('a, button, .glass-card, .tool-pill');
-            hoverElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    gsap.to(cursor, { scale: 1.8, borderColor: '#F5F5F5', duration: 0.3 });
-                });
-                el.addEventListener('mouseleave', () => {
-                    gsap.to(cursor, { scale: 1, borderColor: '#7DFA2A', duration: 0.3 });
-                });
+                gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.3 });
+                gsap.to(cursorDot, { x: e.clientX - 3, y: e.clientY - 3, duration: 0.1 });
             });
         }
 
-        // ============ SCROLL REVEAL ANIMATIONS ============
+        // ========== SCROLL REVEAL ==========
         gsap.registerPlugin(ScrollTrigger);
-
-        const revealElements = document.querySelectorAll('.reveal');
-        revealElements.forEach(el => {
+        document.querySelectorAll('.reveal').forEach(el => {
             ScrollTrigger.create({
                 trigger: el,
                 start: 'top 85%',
@@ -870,111 +915,18 @@
             });
         });
 
-        // ============ GSAP HERO PARALLAX ============
-        gsap.to('.floating-shape', {
-            scrollTrigger: {
-                trigger: '#hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            },
-            y: 100,
-            scale: 0.8,
-            opacity: 0.3
-        });
-
-        // ============ MAGNETIC BUTTONS ============
+        // ========== MAGNETIC BUTTONS ==========
         document.querySelectorAll('.magnetic-btn').forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                gsap.to(btn, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.4,
-                    ease: 'power2.out'
-                });
+                gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4 });
             });
             btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: 'elastic.out(1, 0.5)'
-                });
+                gsap.to(btn, { x: 0, y: 0, duration: 0.6 });
             });
         });
-
-        // ============ TESTIMONIAL AUTO SCROLL ============
-        const testimonialScroll = document.getElementById('testimonialScroll');
-        if (testimonialScroll) {
-            let scrollDirection = 1;
-            let scrollInterval;
-
-            function autoScroll() {
-                if (!testimonialScroll) return;
-                testimonialScroll.scrollBy({
-                    left: scrollDirection * 2,
-                    behavior: 'smooth'
-                });
-
-                if (testimonialScroll.scrollLeft + testimonialScroll.clientWidth >= testimonialScroll.scrollWidth - 10) {
-                    scrollDirection = -1;
-                } else if (testimonialScroll.scrollLeft <= 10) {
-                    scrollDirection = 1;
-                }
-            }
-
-            scrollInterval = setInterval(autoScroll, 40);
-            testimonialScroll.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-            testimonialScroll.addEventListener('mouseleave', () => {
-                scrollInterval = setInterval(autoScroll, 40);
-            });
-        }
-
-        // ============ CONTACT FORM - WHATSAPP INTEGRATION ============
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const projectType = document.getElementById('projectType').value.trim();
-            const budget = document.getElementById('budget').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            const whatsappNumber = '923071533354';
-            
-            const text = `*New Project Inquiry*%0A%0A` +
-                        `👤 *Name:* ${name}%0A` +
-                        `📧 *Email:* ${email}%0A` +
-                        `📋 *Project:* ${projectType || 'Not specified'}%0A` +
-                        `💰 *Budget:* ${budget || 'Not specified'}%0A` +
-                        `💬 *Message:* ${message || 'Not provided'}%0A%0A` +
-                        `_Sent from Muhammad Tahir Portfolio_`;
-
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
-            window.open(whatsappURL, '_blank');
-        }
-
-        // ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        console.log('%c✨ Muhammad Tahir Portfolio %cLoaded Successfully', 
-            'color: #7DFA2A; font-size: 24px; font-weight: bold;', 
-            'color: #F5F5F5;');
-        console.log('%c📸 Portrait image ready | Update with direct ImgBB URL if needed', 'color: #7DFA2A;');
     </script>
 </body>
 </html>
